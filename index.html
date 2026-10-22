@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Tài Xỉu Hoàng Gia - Bát Trắng Nặn Cực Đỉnh</title>
+    <title>Tài Xỉu Hoàng Gia - Nổ Hũ & Vòng Quay May Mắn</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -54,6 +54,15 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.7));
         }
 
+        /* Jackpot Banner Glow */
+        @keyframes jackPotGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(234, 179, 8, 0.4), inset 0 0 15px rgba(234, 179, 8, 0.2); border-color: #eab308; }
+            50% { box-shadow: 0 0 35px rgba(234, 179, 8, 0.9), inset 0 0 25px rgba(253, 224, 71, 0.5); border-color: #fde047; }
+        }
+        .jackpot-container {
+            animation: jackPotGlow 2s infinite ease-in-out;
+        }
+
         /* Tài & Xỉu Side Panels */
         .bet-zone {
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -83,29 +92,12 @@
 
         /* Winning Glow Pulse */
         @keyframes winPulseTai {
-            0%, 100% {
-                box-shadow: 0 0 25px #ef4444, inset 0 0 30px rgba(239, 68, 68, 0.6);
-                border-color: #fde047;
-                transform: scale(1.02);
-            }
-            50% {
-                box-shadow: 0 0 55px #fde047, inset 0 0 50px rgba(253, 224, 71, 0.75);
-                border-color: #ffffff;
-                transform: scale(1.04);
-            }
+            0%, 100% { box-shadow: 0 0 25px #ef4444, inset 0 0 30px rgba(239, 68, 68, 0.6); border-color: #fde047; transform: scale(1.02); }
+            50% { box-shadow: 0 0 55px #fde047, inset 0 0 50px rgba(253, 224, 71, 0.75); border-color: #ffffff; transform: scale(1.04); }
         }
-
         @keyframes winPulseXiu {
-            0%, 100% {
-                box-shadow: 0 0 25px #38bdf8, inset 0 0 30px rgba(56, 189, 248, 0.6);
-                border-color: #fde047;
-                transform: scale(1.02);
-            }
-            50% {
-                box-shadow: 0 0 55px #fde047, inset 0 0 50px rgba(253, 224, 71, 0.75);
-                border-color: #ffffff;
-                transform: scale(1.04);
-            }
+            0%, 100% { box-shadow: 0 0 25px #38bdf8, inset 0 0 30px rgba(56, 189, 248, 0.6); border-color: #fde047; transform: scale(1.02); }
+            50% { box-shadow: 0 0 55px #fde047, inset 0 0 50px rgba(253, 224, 71, 0.75); border-color: #ffffff; transform: scale(1.04); }
         }
 
         .winner-tai {
@@ -135,7 +127,6 @@
             justify-content: center;
         }
 
-        /* Inner well of the white plate */
         .plate-inner-well {
             width: 210px;
             height: 210px;
@@ -255,17 +246,9 @@
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
         }
 
-        .pip.red {
-            background: radial-gradient(circle at 35% 35%, #ef4444, #b91c1c);
-        }
-        .pip.black {
-            background: radial-gradient(circle at 35% 35%, #334155, #0f172a);
-        }
-        .pip.ace {
-            width: 17px;
-            height: 17px;
-            background: radial-gradient(circle at 35% 35%, #f87171, #dc2626 60%, #991b1b 100%);
-        }
+        .pip.red { background: radial-gradient(circle at 35% 35%, #ef4444, #b91c1c); }
+        .pip.black { background: radial-gradient(circle at 35% 35%, #334155, #0f172a); }
+        .pip.ace { width: 17px; height: 17px; background: radial-gradient(circle at 35% 35%, #f87171, #dc2626 60%, #991b1b 100%); }
 
         .video-dice-overlay {
             position: absolute;
@@ -290,10 +273,7 @@
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.6), inset 0 2px 5px rgba(255, 255, 255, 0.4);
         }
 
-        .casino-chip:hover {
-            transform: translateY(-4px) scale(1.06);
-        }
-
+        .casino-chip:hover { transform: translateY(-4px) scale(1.06); }
         .casino-chip.active {
             transform: translateY(-7px) scale(1.12);
             box-shadow: 0 0 20px #fde047, 0 8px 16px rgba(0, 0, 0, 0.8);
@@ -312,9 +292,7 @@
             pointer-events: none;
         }
 
-        .is-hidden {
-            display: none !important;
-        }
+        .is-hidden { display: none !important; }
 
         @keyframes rejectShake {
             0%, 100% { transform: translateX(0); }
@@ -323,10 +301,7 @@
             60% { transform: translateX(-6px); }
             80% { transform: translateX(6px); }
         }
-
-        .reject-shake {
-            animation: rejectShake 0.35s ease-in-out;
-        }
+        .reject-shake { animation: rejectShake 0.35s ease-in-out; }
 
         .bet-zone.locked {
             border-color: rgba(148, 163, 184, 0.35) !important;
@@ -339,32 +314,40 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(234, 179, 8, 0.08);
         }
 
-        .chat-message-enter {
-            animation: chatSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
+        .chat-message-enter { animation: chatSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes chatSlideIn {
             from { opacity: 0; transform: translateY(8px) scale(0.98); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        ::-webkit-scrollbar {
-            height: 6px;
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #475569;
-            border-radius: 3px;
-        }
+        ::-webkit-scrollbar { height: 6px; width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
     </style>
 </head>
 <body class="flex flex-col justify-between min-h-screen p-2 sm:p-4 select-none">
 
-    <!-- TOP NOTIFICATION TOAST -->
+    <!-- TOP TOAST CONTAINER -->
     <div id="toastContainer" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 w-full max-w-md px-4 pointer-events-none"></div>
+
+    <!-- JACKPOT BANNER TOP -->
+    <div class="w-full max-w-7xl mx-auto mb-2 bg-gradient-to-r from-amber-950 via-slate-900 to-amber-950 jackpot-container border-2 border-amber-400/80 rounded-2xl px-4 py-2.5 flex items-center justify-between gap-3 shadow-xl backdrop-blur-md">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-yellow-300 via-amber-500 to-red-600 p-0.5 shadow-lg flex items-center justify-center animate-bounce">
+                <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-amber-300 text-lg">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+            </div>
+            <div>
+                <div class="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-amber-400">HŨ JACKPOT HOÀNG GIA (Chiết khấu 1%)</div>
+                <div id="jackpotDisplay" class="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 font-digital tracking-tight">188,450,200 đ</div>
+            </div>
+        </div>
+        <div class="text-right hidden sm:block">
+            <div class="text-[11px] text-slate-300"><i class="fa-solid fa-dice-d6 text-amber-400 mr-1"></i>Nổ Hũ khi ra: <strong class="text-white">1-1-1</strong> hoặc <strong class="text-white">6-6-6</strong></div>
+            <div class="text-[10px] text-amber-300/80">Quay vòng quay may mắn chia đều cho toàn bộ phòng!</div>
+        </div>
+    </div>
 
     <!-- HEADER BAR -->
     <header class="w-full max-w-7xl mx-auto bg-slate-900/90 border border-amber-500/40 rounded-2xl px-3 py-2.5 sm:px-5 sm:py-3 shadow-2xl backdrop-blur-md flex flex-wrap items-center justify-between gap-2 z-20">
@@ -393,7 +376,7 @@
         </div>
 
         <div class="flex items-center gap-2 sm:gap-2.5 ml-auto flex-wrap justify-end">
-            <button onclick="openNameModal()" title="Đổi tên hiển thị hoặc đổi phòng chơi" class="bg-slate-950/90 hover:bg-slate-800 border border-sky-500/40 rounded-xl px-2.5 py-1.5 sm:px-3 sm:py-2 flex items-center gap-2 transition">
+            <button onclick="openNameModal()" title="Đổi tên hiển thị hoặc phòng" class="bg-slate-950/90 hover:bg-slate-800 border border-sky-500/40 rounded-xl px-2.5 py-1.5 sm:px-3 sm:py-2 flex items-center gap-2 transition">
                 <div id="headerAvatarBadge" class="w-7 h-7 rounded-full bg-gradient-to-br from-sky-400 to-blue-700 flex items-center justify-center text-white font-black text-xs shadow">
                     VIP
                 </div>
@@ -422,7 +405,7 @@
                 <span>NẠP TIỀN</span>
             </button>
 
-            <button onclick="openGitModal()" title="Hướng dẫn đẩy code lên Git (Linux)" class="bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-500/40 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition">
+            <button onclick="openGitModal()" title="Hướng dẫn Git" class="bg-slate-800 hover:bg-slate-700 text-sky-300 border border-sky-500/40 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-1.5 transition">
                 <i class="fa-brands fa-git-alt text-orange-400 text-base"></i>
                 <span class="hidden xl:inline">Git Deploy</span>
             </button>
@@ -433,214 +416,200 @@
         </div>
     </header>
 
-    <!-- MAIN CASINO TABLE + MULTIPLAYER LIVE CHAT -->
+    <!-- MAIN TABLE & CHAT -->
     <main class="w-full max-w-7xl mx-auto my-2 flex-1 flex flex-col justify-center">
         <div class="grid grid-cols-1 xl:grid-cols-12 gap-4 items-stretch">
 
             <div class="xl:col-span-8 casino-board rounded-3xl sm:rounded-[40px] p-3 sm:p-6 flex flex-col justify-between">
 
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-amber-500/20">
-                <div class="flex items-center gap-2.5 bg-black/50 border border-amber-500/30 px-3 py-1.5 rounded-2xl">
-                    <span class="text-xs sm:text-sm font-bold text-slate-300">Chế độ mở bát:</span>
-                    <button id="nanModeToggle" onclick="toggleNanMode()" class="relative inline-flex items-center h-8 rounded-xl p-1 bg-amber-500/20 border border-amber-400/60 transition-all cursor-pointer gap-1.5">
-                        <span id="nanBadgeOn" class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow">
-                            <i class="fa-solid fa-hand-sparkles mr-1"></i>TỰ NẶN BÁT
-                        </span>
-                        <span id="nanBadgeOff" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-400">
-                            KHÔNG NẶN
-                        </span>
-                    </button>
-                </div>
-
-                <div id="instructionBanner" class="flex-1 text-center px-3 py-1.5 rounded-xl bg-gradient-to-r from-transparent via-amber-500/15 to-transparent border-y border-amber-500/20 text-xs sm:text-sm font-bold text-amber-200">
-                    Đặt cược vào cửa <span class="text-red-400">TÀI</span> hoặc <span class="text-sky-400">XỈU</span> (Khóa cược khi còn 8 giây)
-                </div>
-
-                <div id="lastResultPill" class="hidden sm:flex items-center gap-2 bg-black/50 border border-slate-700 px-3 py-1.5 rounded-2xl text-xs">
-                    <span class="text-slate-400">Phiên trước:</span>
-                    <span id="prevSessionResultText" class="font-extrabold text-amber-300">TÀI (14)</span>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-center my-2">
-
-                <!-- TÀI ZONE -->
-                <div id="zoneTai" onclick="placeBet('TAI')" class="bet-zone bet-zone-tai lg:col-span-4 rounded-3xl p-4 sm:p-5 cursor-pointer flex flex-col items-center justify-between min-h-[210px] sm:min-h-[260px] select-none">
-                    <div class="w-full flex items-center justify-between text-xs text-red-200/80 font-semibold">
-                        <span><i class="fa-solid fa-users mr-1"></i><span id="crowdCountTai">418</span> người</span>
-                        <span class="px-2 py-0.5 rounded bg-red-950/80 border border-red-500/40 text-red-300">1 ăn 1 (x2)</span>
-                    </div>
-
-                    <div class="my-2 text-center">
-                        <div class="text-5xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-red-200 to-red-500 drop-shadow-[0_4px_12px_rgba(239,68,68,0.8)]">
-                            TÀI
-                        </div>
-                        <div class="text-xs sm:text-sm font-bold text-amber-300 mt-1 tracking-widest uppercase">
-                            11 — 17 Điểm
-                        </div>
-                    </div>
-
-                    <div class="w-full bg-black/45 border border-red-500/30 rounded-xl py-1.5 px-3 text-center mb-2">
-                        <div class="text-[10px] text-red-300/70 uppercase">Tổng cược cửa Tài</div>
-                        <div id="crowdMoneyTai" class="text-sm sm:text-base font-extrabold text-amber-300 font-digital">142,500,000</div>
-                    </div>
-
-                    <div class="w-full bg-gradient-to-r from-red-950/90 via-red-900/80 to-red-950/90 border border-amber-400/50 rounded-xl py-2 px-3 flex items-center justify-between">
-                        <span class="text-xs font-bold text-amber-200"><i class="fa-solid fa-coins text-amber-400 mr-1"></i>Cược của bạn:</span>
-                        <span id="myBetTai" class="text-sm sm:text-base font-black text-white font-digital">0</span>
-                    </div>
-
-                    <div id="lockBadgeTai" style="display: none;" class="is-hidden absolute inset-0 bg-black/65 backdrop-blur-[2px] flex flex-col items-center justify-center gap-1 pointer-events-none">
-                        <span class="px-3.5 py-1.5 rounded-xl bg-red-950/95 border border-red-400 text-red-200 font-extrabold text-xs uppercase tracking-wider shadow-lg">
-                            <i class="fa-solid fa-lock mr-1"></i>KHÓA CƯỢC (&lt; 8s)
-                        </span>
-                        <span class="text-[11px] font-semibold text-amber-200">Chờ phiên sau để đặt</span>
-                    </div>
-                </div>
-
-                <!-- CENTER PLATE -->
-                <div class="lg:col-span-4 flex flex-col items-center justify-center relative py-2">
-                    <div class="mb-3 flex items-center gap-3 z-20">
-                        <div id="timerBox" class="px-4 py-1.5 rounded-2xl bg-slate-950/95 border-2 border-amber-400 shadow-[0_0_20px_rgba(234,179,8,0.4)] flex items-center gap-2.5">
-                            <i id="timerIcon" class="fa-regular fa-clock text-amber-400 text-lg animate-spin" style="animation-duration: 6s;"></i>
-                            <div class="text-left">
-                                <div id="timerLabel" class="text-[10px] uppercase tracking-wider text-slate-400 font-bold leading-none">Thời gian đặt cược</div>
-                                <div id="timerSeconds" class="text-xl sm:text-2xl font-black text-amber-300 font-digital leading-tight">30s</div>
-                            </div>
-                        </div>
-
-                        <button id="instantOpenBtn" onclick="openBowlFully('manual_btn')" style="display: none;" class="is-hidden px-3 py-2 rounded-2xl bg-gradient-to-b from-amber-300 to-amber-600 text-slate-950 font-black text-xs sm:text-sm shadow-lg hover:brightness-110 active:scale-95 transition">
-                            <i class="fa-solid fa-eye mr-1"></i>MỞ BÁT NGAY
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-amber-500/20">
+                    <div class="flex items-center gap-2.5 bg-black/50 border border-amber-500/30 px-3 py-1.5 rounded-2xl">
+                        <span class="text-xs sm:text-sm font-bold text-slate-300">Chế độ mở bát:</span>
+                        <button id="nanModeToggle" onclick="toggleNanMode()" class="relative inline-flex items-center h-8 rounded-xl p-1 bg-amber-500/20 border border-amber-400/60 transition-all cursor-pointer gap-1.5">
+                            <span id="nanBadgeOn" class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow">
+                                <i class="fa-solid fa-hand-sparkles mr-1"></i>TỰ NẶN BÁT
+                            </span>
+                            <span id="nanBadgeOff" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-400">
+                                KHÔNG NẶN
+                            </span>
                         </button>
                     </div>
 
-                    <div id="plateContainer" class="white-ceramic-plate select-none">
-                        <div id="plateInnerWell" class="plate-inner-well">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15">
-                                <div class="w-28 h-28 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center">
-                                    <span class="text-slate-700 font-black text-xs tracking-widest">HOÀNG GIA</span>
+                    <div id="instructionBanner" class="flex-1 text-center px-3 py-1.5 rounded-xl bg-gradient-to-r from-transparent via-amber-500/15 to-transparent border-y border-amber-500/20 text-xs sm:text-sm font-bold text-amber-200">
+                        Đặt cược vào cửa <span class="text-red-400">TÀI</span> hoặc <span class="text-sky-400">XỈU</span> (Khóa cược khi còn 8 giây)
+                    </div>
+
+                    <div id="lastResultPill" class="hidden sm:flex items-center gap-2 bg-black/50 border border-slate-700 px-3 py-1.5 rounded-2xl text-xs">
+                        <span class="text-slate-400">Phiên trước:</span>
+                        <span id="prevSessionResultText" class="font-extrabold text-amber-300">TÀI (14)</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-center my-2">
+
+                    <!-- TÀI ZONE -->
+                    <div id="zoneTai" onclick="placeBet('TAI')" class="bet-zone bet-zone-tai lg:col-span-4 rounded-3xl p-4 sm:p-5 cursor-pointer flex flex-col items-center justify-between min-h-[210px] sm:min-h-[260px] select-none">
+                        <div class="w-full flex items-center justify-between text-xs text-red-200/80 font-semibold">
+                            <span><i class="fa-solid fa-users mr-1"></i><span id="crowdCountTai">418</span> người</span>
+                            <span class="px-2 py-0.5 rounded bg-red-950/80 border border-red-500/40 text-red-300">1 ăn 1 (x2)</span>
+                        </div>
+
+                        <div class="my-2 text-center">
+                            <div class="text-5xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-red-200 to-red-500 drop-shadow-[0_4px_12px_rgba(239,68,68,0.8)]">
+                                TÀI
+                            </div>
+                            <div class="text-xs sm:text-sm font-bold text-amber-300 mt-1 tracking-widest uppercase">
+                                11 — 17 Điểm
+                            </div>
+                        </div>
+
+                        <div class="w-full bg-black/45 border border-red-500/30 rounded-xl py-1.5 px-3 text-center mb-2">
+                            <div class="text-[10px] text-red-300/70 uppercase">Tổng cược cửa Tài</div>
+                            <div id="crowdMoneyTai" class="text-sm sm:text-base font-extrabold text-amber-300 font-digital">142,500,000</div>
+                        </div>
+
+                        <div class="w-full bg-gradient-to-r from-red-950/90 via-red-900/80 to-red-950/90 border border-amber-400/50 rounded-xl py-2 px-3 flex items-center justify-between">
+                            <span class="text-xs font-bold text-amber-200"><i class="fa-solid fa-coins text-amber-400 mr-1"></i>Cược của bạn:</span>
+                            <span id="myBetTai" class="text-sm sm:text-base font-black text-white font-digital">0</span>
+                        </div>
+
+                        <div id="lockBadgeTai" style="display: none;" class="is-hidden absolute inset-0 bg-black/65 backdrop-blur-[2px] flex flex-col items-center justify-center gap-1 pointer-events-none">
+                            <span class="px-3.5 py-1.5 rounded-xl bg-red-950/95 border border-red-400 text-red-200 font-extrabold text-xs uppercase tracking-wider shadow-lg">
+                                <i class="fa-solid fa-lock mr-1"></i>KHÓA CƯỢC (&lt; 8s)
+                            </span>
+                            <span class="text-[11px] font-semibold text-amber-200">Chờ phiên sau để đặt</span>
+                        </div>
+                    </div>
+
+                    <!-- CENTER PLATE -->
+                    <div class="lg:col-span-4 flex flex-col items-center justify-center relative py-2">
+                        <div class="mb-3 flex items-center gap-3 z-20">
+                            <div id="timerBox" class="px-4 py-1.5 rounded-2xl bg-slate-950/95 border-2 border-amber-400 shadow-[0_0_20px_rgba(234,179,8,0.4)] flex items-center gap-2.5">
+                                <i id="timerIcon" class="fa-regular fa-clock text-amber-400 text-lg animate-spin" style="animation-duration: 6s;"></i>
+                                <div class="text-left">
+                                    <div id="timerLabel" class="text-[10px] uppercase tracking-wider text-slate-400 font-bold leading-none">Thời gian đặt cược</div>
+                                    <div id="timerSeconds" class="text-xl sm:text-2xl font-black text-amber-300 font-digital leading-tight">30s</div>
                                 </div>
                             </div>
 
-                            <div id="dice1" class="dice-cube" style="top: 34px; left: 48px; transform: rotate(-12deg);"></div>
-                            <div id="dice2" class="dice-cube" style="top: 42px; left: 114px; transform: rotate(18deg);"></div>
-                            <div id="dice3" class="dice-cube" style="top: 108px; left: 78px; transform: rotate(-6deg);"></div>
+                            <button id="instantOpenBtn" onclick="openBowlFully('manual_btn')" style="display: none;" class="is-hidden px-3 py-2 rounded-2xl bg-gradient-to-b from-amber-300 to-amber-600 text-slate-950 font-black text-xs sm:text-sm shadow-lg hover:brightness-110 active:scale-95 transition">
+                                <i class="fa-solid fa-eye mr-1"></i>MỞ BÁT NGAY
+                            </button>
                         </div>
 
-                        <div id="videoDiceOverlay" style="display: none;" class="video-dice-overlay is-hidden">
-                            <canvas id="shakerCanvas" width="270" height="270" class="w-full h-full"></canvas>
-                            <div class="absolute bottom-5 px-3 py-1 rounded-full bg-black/75 border border-amber-400/60 text-[11px] font-extrabold text-amber-300 tracking-wider uppercase animate-pulse">
-                                <i class="fa-solid fa-dice-d6 fa-spin mr-1"></i> Đang lắc xúc xắc...
+                        <div id="plateContainer" class="white-ceramic-plate select-none">
+                            <div id="plateInnerWell" class="plate-inner-well">
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15">
+                                    <div class="w-28 h-28 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center">
+                                        <span class="text-slate-700 font-black text-xs tracking-widest">HOÀNG GIA</span>
+                                    </div>
+                                </div>
+
+                                <div id="dice1" class="dice-cube" style="top: 34px; left: 48px; transform: rotate(-12deg);"></div>
+                                <div id="dice2" class="dice-cube" style="top: 42px; left: 114px; transform: rotate(18deg);"></div>
+                                <div id="dice3" class="dice-cube" style="top: 108px; left: 78px; transform: rotate(-6deg);"></div>
+                            </div>
+
+                            <div id="videoDiceOverlay" style="display: none;" class="video-dice-overlay is-hidden">
+                                <canvas id="shakerCanvas" width="270" height="270" class="w-full h-full"></canvas>
+                                <div class="absolute bottom-5 px-3 py-1 rounded-full bg-black/75 border border-amber-400/60 text-[11px] font-extrabold text-amber-300 tracking-wider uppercase animate-pulse">
+                                    <i class="fa-solid fa-dice-d6 fa-spin mr-1"></i> Đang lắc xúc xắc...
+                                </div>
+                            </div>
+
+                            <div id="whiteLid" style="display: none;" class="white-ceramic-lid is-hidden">
+                                <div class="lid-porcelain-ring">
+                                    <div class="absolute top-3 text-[10px] font-black tracking-widest text-slate-400/70 uppercase">
+                                        BÁT BẠCH NGỌC
+                                    </div>
+                                    <div class="lid-knob">
+                                        <i id="lidStatusIcon" class="fa-solid fa-hand-pointer text-slate-600 text-lg animate-bounce"></i>
+                                        <span id="lidStatusText" class="text-[10px] font-extrabold text-slate-600 uppercase tracking-tighter text-center leading-tight px-1">
+                                            Kéo để nặn
+                                        </span>
+                                    </div>
+                                    <div id="lidTimerBadge" class="absolute bottom-3 px-2.5 py-0.5 rounded-full bg-slate-900/85 text-amber-300 border border-amber-400/50 text-[11px] font-digital font-bold">
+                                        10s
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div id="whiteLid" style="display: none;" class="white-ceramic-lid is-hidden">
-                            <div class="lid-porcelain-ring">
-                                <div class="absolute top-3 text-[10px] font-black tracking-widest text-slate-400/70 uppercase">
-                                    BÁT BẠCH NGỌC
-                                </div>
-                                <div class="lid-knob">
-                                    <i id="lidStatusIcon" class="fa-solid fa-hand-pointer text-slate-600 text-lg animate-bounce"></i>
-                                    <span id="lidStatusText" class="text-[10px] font-extrabold text-slate-600 uppercase tracking-tighter text-center leading-tight px-1">
-                                        Kéo để nặn
-                                    </span>
-                                </div>
-                                <div id="lidTimerBadge" class="absolute bottom-3 px-2.5 py-0.5 rounded-full bg-slate-900/85 text-amber-300 border border-amber-400/50 text-[11px] font-digital font-bold">
-                                    10s
-                                </div>
+                        <div id="diceSumBadge" class="mt-3 px-4 py-1.5 rounded-full bg-slate-950/90 border border-amber-500/40 text-xs sm:text-sm font-bold text-slate-300 shadow-lg">
+                            Đang chờ kết quả phiên <span id="badgeSessionNum" class="text-amber-400 font-digital">#882941</span>
+                        </div>
+                    </div>
+
+                    <!-- XỈU ZONE -->
+                    <div id="zoneXiu" onclick="placeBet('XIU')" class="bet-zone bet-zone-xiu lg:col-span-4 rounded-3xl p-4 sm:p-5 cursor-pointer flex flex-col items-center justify-between min-h-[210px] sm:min-h-[260px] select-none">
+                        <div class="w-full flex items-center justify-between text-xs text-sky-200/80 font-semibold">
+                            <span><i class="fa-solid fa-users mr-1"></i><span id="crowdCountXiu">392</span> người</span>
+                            <span class="px-2 py-0.5 rounded bg-sky-950/80 border border-sky-500/40 text-sky-300">1 ăn 1 (x2)</span>
+                        </div>
+
+                        <div class="my-2 text-center">
+                            <div class="text-5xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-sky-200 to-sky-500 drop-shadow-[0_4px_12px_rgba(56,189,248,0.8)]">
+                                XỈU
+                            </div>
+                            <div class="text-xs sm:text-sm font-bold text-amber-300 mt-1 tracking-widest uppercase">
+                                4 — 10 Điểm
                             </div>
                         </div>
-                    </div>
 
-                    <div id="diceSumBadge" class="mt-3 px-4 py-1.5 rounded-full bg-slate-950/90 border border-amber-500/40 text-xs sm:text-sm font-bold text-slate-300 shadow-lg">
-                        Đang chờ kết quả phiên <span id="badgeSessionNum" class="text-amber-400 font-digital">#882941</span>
-                    </div>
-                </div>
-
-                <!-- XỈU ZONE -->
-                <div id="zoneXiu" onclick="placeBet('XIU')" class="bet-zone bet-zone-xiu lg:col-span-4 rounded-3xl p-4 sm:p-5 cursor-pointer flex flex-col items-center justify-between min-h-[210px] sm:min-h-[260px] select-none">
-                    <div class="w-full flex items-center justify-between text-xs text-sky-200/80 font-semibold">
-                        <span><i class="fa-solid fa-users mr-1"></i><span id="crowdCountXiu">392</span> người</span>
-                        <span class="px-2 py-0.5 rounded bg-sky-950/80 border border-sky-500/40 text-sky-300">1 ăn 1 (x2)</span>
-                    </div>
-
-                    <div class="my-2 text-center">
-                        <div class="text-5xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-sky-200 to-sky-500 drop-shadow-[0_4px_12px_rgba(56,189,248,0.8)]">
-                            XỈU
+                        <div class="w-full bg-black/45 border border-sky-500/30 rounded-xl py-1.5 px-3 text-center mb-2">
+                            <div class="text-[10px] text-sky-300/70 uppercase">Tổng cược cửa Xỉu</div>
+                            <div id="crowdMoneyXiu" class="text-sm sm:text-base font-extrabold text-amber-300 font-digital">138,200,000</div>
                         </div>
-                        <div class="text-xs sm:text-sm font-bold text-amber-300 mt-1 tracking-widest uppercase">
-                            4 — 10 Điểm
+
+                        <div class="w-full bg-gradient-to-r from-slate-950/90 via-sky-950/80 to-slate-950/90 border border-amber-400/50 rounded-xl py-2 px-3 flex items-center justify-between">
+                            <span class="text-xs font-bold text-amber-200"><i class="fa-solid fa-coins text-amber-400 mr-1"></i>Cược của bạn:</span>
+                            <span id="myBetXiu" class="text-sm sm:text-base font-black text-white font-digital">0</span>
+                        </div>
+
+                        <div id="lockBadgeXiu" style="display: none;" class="is-hidden absolute inset-0 bg-black/65 backdrop-blur-[2px] flex flex-col items-center justify-center gap-1 pointer-events-none">
+                            <span class="px-3.5 py-1.5 rounded-xl bg-slate-950/95 border border-sky-400 text-sky-200 font-extrabold text-xs uppercase tracking-wider shadow-lg">
+                                <i class="fa-solid fa-lock mr-1"></i>KHÓA CƯỢC (&lt; 8s)
+                            </span>
+                            <span class="text-[11px] font-semibold text-amber-200">Chờ phiên sau để đặt</span>
                         </div>
                     </div>
 
-                    <div class="w-full bg-black/45 border border-sky-500/30 rounded-xl py-1.5 px-3 text-center mb-2">
-                        <div class="text-[10px] text-sky-300/70 uppercase">Tổng cược cửa Xỉu</div>
-                        <div id="crowdMoneyXiu" class="text-sm sm:text-base font-extrabold text-amber-300 font-digital">138,200,000</div>
+                </div>
+
+                <!-- CHIPS -->
+                <div class="mt-4 pt-4 border-t border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                        <span class="text-xs font-bold text-slate-400 uppercase mr-1 hidden xl:inline">Mệnh giá:</span>
+
+                        <button onclick="selectChip(10000, this)" class="casino-chip active w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-emerald-500 to-emerald-800 text-white text-xs sm:text-sm flex items-center justify-center">10K</button>
+                        <button onclick="selectChip(50000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-blue-500 to-blue-800 text-white text-xs sm:text-sm flex items-center justify-center">50K</button>
+                        <button onclick="selectChip(100000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-purple-500 to-purple-900 text-white text-xs sm:text-sm flex items-center justify-center">100K</button>
+                        <button onclick="selectChip(500000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-orange-500 to-red-800 text-white text-xs sm:text-sm flex items-center justify-center">500K</button>
+                        <button onclick="selectChip(1000000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-red-500 to-rose-950 text-amber-200 text-xs sm:text-sm flex items-center justify-center">1M</button>
+                        <button onclick="selectChip(5000000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-amber-400 via-amber-600 to-yellow-900 text-slate-950 text-xs sm:text-sm flex items-center justify-center">5M</button>
+                        <button onclick="selectChip('ALL_IN', this)" class="casino-chip px-3 h-12 sm:h-14 bg-gradient-to-r from-yellow-300 via-amber-500 to-red-600 text-slate-950 text-xs sm:text-sm flex items-center justify-center font-black">TẤT TAY</button>
                     </div>
 
-                    <div class="w-full bg-gradient-to-r from-slate-950/90 via-sky-950/80 to-slate-950/90 border border-amber-400/50 rounded-xl py-2 px-3 flex items-center justify-between">
-                        <span class="text-xs font-bold text-amber-200"><i class="fa-solid fa-coins text-amber-400 mr-1"></i>Cược của bạn:</span>
-                        <span id="myBetXiu" class="text-sm sm:text-base font-black text-white font-digital">0</span>
-                    </div>
-
-                    <div id="lockBadgeXiu" style="display: none;" class="is-hidden absolute inset-0 bg-black/65 backdrop-blur-[2px] flex flex-col items-center justify-center gap-1 pointer-events-none">
-                        <span class="px-3.5 py-1.5 rounded-xl bg-slate-950/95 border border-sky-400 text-sky-200 font-extrabold text-xs uppercase tracking-wider shadow-lg">
-                            <i class="fa-solid fa-lock mr-1"></i>KHÓA CƯỢC (&lt; 8s)
-                        </span>
-                        <span class="text-[11px] font-semibold text-amber-200">Chờ phiên sau để đặt</span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="repeatLastBet()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-bold text-slate-200 active:scale-95 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-rotate-right text-amber-400"></i> Đặt lại
+                        </button>
+                        <button onclick="doubleCurrentBet()" class="px-3 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-xs font-bold text-amber-300 active:scale-95 transition flex items-center gap-1">
+                            <i class="fa-solid fa-bolt"></i> X2 Cược
+                        </button>
                     </div>
                 </div>
 
-            </div>
+                <!-- HISTORY -->
+                <div class="mt-4 bg-black/55 border border-amber-500/25 rounded-2xl p-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div class="flex items-center gap-2 text-xs font-bold shrink-0">
+                        <span class="text-amber-400 uppercase tracking-wider"><i class="fa-solid fa-chart-line mr-1"></i>Soi cầu:</span>
+                        <span class="px-2 py-0.5 rounded bg-red-500/20 border border-red-500/40 text-red-300">Tài: <strong id="statTaiCount">0</strong></span>
+                        <span class="px-2 py-0.5 rounded bg-sky-500/20 border border-sky-500/40 text-sky-300">Xỉu: <strong id="statXiuCount">0</strong></span>
+                    </div>
 
-            <!-- CHIPS -->
-            <div class="mt-4 pt-4 border-t border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-                    <span class="text-xs font-bold text-slate-400 uppercase mr-1 hidden xl:inline">Chọn mệnh giá:</span>
-
-                    <button onclick="selectChip(10000, this)" class="casino-chip active w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-emerald-500 to-emerald-800 text-white text-xs sm:text-sm flex items-center justify-center">
-                        10K
-                    </button>
-                    <button onclick="selectChip(50000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-blue-500 to-blue-800 text-white text-xs sm:text-sm flex items-center justify-center">
-                        50K
-                    </button>
-                    <button onclick="selectChip(100000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-purple-500 to-purple-900 text-white text-xs sm:text-sm flex items-center justify-center">
-                        100K
-                    </button>
-                    <button onclick="selectChip(500000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-orange-500 to-red-800 text-white text-xs sm:text-sm flex items-center justify-center">
-                        500K
-                    </button>
-                    <button onclick="selectChip(1000000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-red-500 to-rose-950 text-amber-200 text-xs sm:text-sm flex items-center justify-center">
-                        1M
-                    </button>
-                    <button onclick="selectChip(5000000, this)" class="casino-chip w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-b from-amber-400 via-amber-600 to-yellow-900 text-slate-950 text-xs sm:text-sm flex items-center justify-center">
-                        5M
-                    </button>
-                    <button onclick="selectChip('ALL_IN', this)" class="casino-chip px-3 h-12 sm:h-14 bg-gradient-to-r from-yellow-300 via-amber-500 to-red-600 text-slate-950 text-xs sm:text-sm flex items-center justify-center font-black">
-                        TẤT TAY
-                    </button>
+                    <div id="historyBeadContainer" class="flex items-center gap-1.5 overflow-x-auto w-full py-1 px-1 justify-start sm:justify-end"></div>
                 </div>
-
-                <div class="flex items-center gap-2">
-                    <button onclick="repeatLastBet()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-bold text-slate-200 active:scale-95 transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-rotate-right text-amber-400"></i> Đặt lại phiên trước
-                    </button>
-                    <button onclick="doubleCurrentBet()" class="px-3 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-xs font-bold text-amber-300 active:scale-95 transition flex items-center gap-1">
-                        <i class="fa-solid fa-bolt"></i> X2 Cược
-                    </button>
-                </div>
-            </div>
-
-            <!-- HISTORY -->
-            <div class="mt-4 bg-black/55 border border-amber-500/25 rounded-2xl p-3 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div class="flex items-center gap-2 text-xs font-bold shrink-0">
-                    <span class="text-amber-400 uppercase tracking-wider"><i class="fa-solid fa-chart-line mr-1"></i>Soi cầu:</span>
-                    <span class="px-2 py-0.5 rounded bg-red-500/20 border border-red-500/40 text-red-300">Tài: <strong id="statTaiCount">0</strong></span>
-                    <span class="px-2 py-0.5 rounded bg-sky-500/20 border border-sky-500/40 text-sky-300">Xỉu: <strong id="statXiuCount">0</strong></span>
-                </div>
-
-                <div id="historyBeadContainer" class="flex items-center gap-1.5 overflow-x-auto w-full py-1 px-1 justify-start sm:justify-end"></div>
-            </div>
 
             </div>
 
@@ -675,18 +644,10 @@
                 <div id="chatMessagesContainer" class="flex-1 overflow-y-auto my-3 pr-1 space-y-2.5 max-h-[300px] xl:max-h-[410px]"></div>
 
                 <div class="mb-2.5 flex items-center gap-1.5 overflow-x-auto pb-1">
-                    <button onclick="sendQuickChat('Tài chắc luôn anh em ơi! 🔥')" class="shrink-0 px-2.5 py-1 rounded-full bg-red-950/70 hover:bg-red-900/80 border border-red-500/40 text-[11px] font-bold text-red-200 transition">
-                        🔥 Tài chắc luôn!
-                    </button>
-                    <button onclick="sendQuickChat('Cầu Xỉu đẹp quá vào thôi 🌊')" class="shrink-0 px-2.5 py-1 rounded-full bg-sky-950/70 hover:bg-sky-900/80 border border-sky-500/40 text-[11px] font-bold text-sky-200 transition">
-                        🌊 Cầu Xỉu đẹp!
-                    </button>
-                    <button onclick="sendQuickChat('Nặn từ từ thôi tay thơm 🤚')" class="shrink-0 px-2.5 py-1 rounded-full bg-amber-950/70 hover:bg-amber-900/80 border border-amber-500/40 text-[11px] font-bold text-amber-200 transition">
-                        🤚 Nặn từ từ thôi
-                    </button>
-                    <button onclick="sendQuickChat('Húp trọn ổ phiên này! 💰')" class="shrink-0 px-2.5 py-1 rounded-full bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-500/40 text-[11px] font-bold text-emerald-200 transition">
-                        💰 Húp trọn ổ!
-                    </button>
+                    <button onclick="sendQuickChat('Tài chắc luôn anh em ơi! 🔥')" class="shrink-0 px-2.5 py-1 rounded-full bg-red-950/70 hover:bg-red-900/80 border border-red-500/40 text-[11px] font-bold text-red-200 transition">🔥 Tài chắc luôn!</button>
+                    <button onclick="sendQuickChat('Cầu Xỉu đẹp quá vào thôi 🌊')" class="shrink-0 px-2.5 py-1 rounded-full bg-sky-950/70 hover:bg-sky-900/80 border border-sky-500/40 text-[11px] font-bold text-sky-200 transition">🌊 Cầu Xỉu đẹp!</button>
+                    <button onclick="sendQuickChat('Nặn từ từ thôi tay thơm 🤚')" class="shrink-0 px-2.5 py-1 rounded-full bg-amber-950/70 hover:bg-amber-900/80 border border-amber-500/40 text-[11px] font-bold text-amber-200 transition">🤚 Nặn từ từ thôi</button>
+                    <button onclick="sendQuickChat('Húp trọn ổ phiên này! 💰')" class="shrink-0 px-2.5 py-1 rounded-full bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-500/40 text-[11px] font-bold text-emerald-200 transition">💰 Húp trọn ổ!</button>
                 </div>
 
                 <form onsubmit="handleChatSubmit(event)" class="flex items-center gap-2">
@@ -707,11 +668,11 @@
             <div class="flex items-center gap-3 mb-4">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-red-700 p-0.5 shadow-lg flex items-center justify-center">
                     <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-amber-400 text-2xl">
-                        <i class="fa-solid fa-user-crown fa-solid fa-crown"></i>
+                        <i class="fa-solid fa-crown"></i>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-lg font-black text-white uppercase tracking-wide">Vào Bàn Tài Xỉu Online</h3>
+                    <h3 class="text-lg font-black text-white uppercase tracking-wide">Vào Bàn Tài Xỉu Hoàng Gia</h3>
                     <p class="text-xs text-slate-400">Đặt biệt danh để chat và chơi chung phiên với bạn bè</p>
                 </div>
             </div>
@@ -734,9 +695,6 @@
                         <button type="button" onclick="setPresetRoom('VIP-888')" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-bold text-slate-200">VIP-888</button>
                         <button type="button" onclick="setPresetRoom('BAN-01')" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-bold text-slate-200">BAN-01</button>
                     </div>
-                    <p class="text-[11px] text-slate-400 mt-1">
-                        <i class="fa-solid fa-circle-info text-amber-400 mr-1"></i>Bạn và bạn bè chỉ cần nhập <strong>cùng Mã phòng</strong> là sẽ tự động khớp cùng phiên, cùng xúc xắc và chat trực tiếp với nhau!
-                    </p>
                 </div>
 
                 <button onclick="confirmPlayerNameAndJoin()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 hover:brightness-110 active:scale-98 text-slate-950 font-black text-sm sm:text-base uppercase shadow-xl transition flex items-center justify-center gap-2">
@@ -746,9 +704,9 @@
         </div>
     </div>
 
-    <!-- MODAL 1: TOP UP -->
+    <!-- MODAL 1: TOP UP (Capped at 10M per transaction) -->
     <div id="topUpModal" style="display: none;" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 is-hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border-2 border-amber-400 rounded-3xl max-w-md w-full p-6 shadow-2xl relative animate-[fadeIn_0.2s_ease]">
+        <div class="bg-slate-900 border-2 border-amber-400 rounded-3xl max-w-md w-full p-6 shadow-2xl relative">
             <button onclick="closeTopUpModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -758,40 +716,69 @@
                     <i class="fa-solid fa-sack-dollar"></i>
                 </div>
                 <div>
-                    <h3 class="text-lg font-black text-white uppercase">Nạp Tiền Ảo Miễn Phí</h3>
-                    <p class="text-xs text-slate-400">Thích nạp bao nhiêu cũng được — Cộng ngay lập tức!</p>
+                    <h3 class="text-lg font-black text-white uppercase">Nạp Tiền Ảo (Tối đa 10M/lần)</h3>
+                    <p class="text-xs text-slate-400">Có thể nạp nhiều lần, mỗi lần tối đa 10,000,000 đ</p>
                 </div>
             </div>
 
             <div class="mb-4">
-                <label class="text-xs font-bold text-slate-400 uppercase block mb-2">Chọn nhanh mệnh giá nạp:</label>
+                <label class="text-xs font-bold text-slate-400 uppercase block mb-2">Chọn nhanh mệnh giá (Tối đa 10M):</label>
                 <div class="grid grid-cols-3 gap-2">
-                    <button onclick="quickAddMoney(1000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 hover:border-emerald-400 text-xs font-extrabold text-emerald-300 transition">+1,000,000</button>
-                    <button onclick="quickAddMoney(10000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 hover:border-emerald-400 text-xs font-extrabold text-emerald-300 transition">+10,000,000</button>
-                    <button onclick="quickAddMoney(50000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 hover:border-emerald-400 text-xs font-extrabold text-emerald-300 transition">+50,000,000</button>
-                    <button onclick="quickAddMoney(100000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 hover:border-emerald-400 text-xs font-extrabold text-amber-300 transition">+100 Triệu</button>
-                    <button onclick="quickAddMoney(500000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 hover:border-emerald-400 text-xs font-extrabold text-amber-300 transition">+500 Triệu</button>
-                    <button onclick="quickAddMoney(1000000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 hover:border-emerald-400 text-xs font-extrabold text-yellow-300 transition">+1 Tỷ</button>
+                    <button onclick="quickAddMoney(100000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 text-xs font-extrabold text-emerald-300 transition">+100,000</button>
+                    <button onclick="quickAddMoney(500000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 text-xs font-extrabold text-emerald-300 transition">+500,000</button>
+                    <button onclick="quickAddMoney(1000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 text-xs font-extrabold text-emerald-300 transition">+1,000,000</button>
+                    <button onclick="quickAddMoney(2000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 text-xs font-extrabold text-emerald-300 transition">+2,000,000</button>
+                    <button onclick="quickAddMoney(5000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 text-xs font-extrabold text-amber-300 transition">+5,000,000</button>
+                    <button onclick="quickAddMoney(10000000)" class="py-2 px-2 rounded-xl bg-slate-800 hover:bg-emerald-900/50 border border-slate-700 text-xs font-extrabold text-yellow-300 transition">+10,000,000</button>
                 </div>
             </div>
 
             <div class="mb-5">
-                <label class="text-xs font-bold text-slate-400 uppercase block mb-1.5">Hoặc tự nhập số tiền bất kỳ muốn nạp:</label>
+                <label class="text-xs font-bold text-slate-400 uppercase block mb-1.5">Nhập số tiền muốn nạp (Tối đa 10,000,000 đ):</label>
                 <div class="relative">
-                    <input id="customTopUpInput" type="number" min="1000" step="10000" placeholder="Ví dụ: 99999999" class="w-full bg-slate-950 border border-amber-500/50 focus:border-amber-400 rounded-xl px-4 py-3 text-white font-digital text-base outline-none">
+                    <input id="customTopUpInput" type="number" min="1000" max="10000000" step="50000" placeholder="VD: 5000000" class="w-full bg-slate-950 border border-amber-500/50 focus:border-amber-400 rounded-xl px-4 py-3 text-white font-digital text-base outline-none">
                     <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-amber-400">VNĐ</span>
                 </div>
             </div>
 
-            <div class="flex gap-2">
-                <button onclick="submitCustomTopUp()" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 hover:from-emerald-300 hover:to-emerald-500 text-slate-950 font-black text-sm uppercase shadow-lg transition">
-                    <i class="fa-solid fa-check mr-1"></i> Xác Nhận Nạp Ngay
-                </button>
-            </div>
+            <button onclick="submitCustomTopUp()" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 hover:brightness-110 text-slate-950 font-black text-sm uppercase shadow-lg transition">
+                <i class="fa-solid fa-check mr-1"></i> Xác Nhận Nạp Ngay (Tối đa 10M)
+            </button>
         </div>
     </div>
 
-    <!-- MODAL 2: GIT DEPLOY -->
+    <!-- MODAL 2: LUCKY WHEEL (VÒNG QUAY NỔ HŨ) -->
+    <div id="jackpotModal" style="display: none;" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 is-hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border-2 border-yellow-400 rounded-3xl max-w-md w-full p-6 shadow-[0_0_80px_rgba(234,179,8,0.6)] text-center relative">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-300 via-amber-500 to-red-600 mx-auto mb-3 flex items-center justify-center text-slate-950 text-2xl font-black shadow-xl animate-bounce">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-yellow-400 uppercase tracking-wider">NỔ HŨ HOÀNG GIA!</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Xuất hiện xúc xắc <span id="jackpotDiceResultText" class="font-bold text-amber-300">1-1-1</span>! Vòng quay may mắn đang chọn phe <strong class="text-red-400">TÀI</strong> hoặc <strong class="text-sky-400">XỈU</strong> để chia thưởng!</p>
+
+            <div class="my-6 relative py-4 bg-slate-950/90 border border-amber-500/40 rounded-2xl flex items-center justify-center overflow-hidden">
+                <div class="absolute top-0 bottom-0 w-1 bg-red-500 z-10 shadow-[0_0_10px_#ef4444]"></div>
+                <div id="wheelStrip" class="flex gap-4 items-center transition-all duration-[4000ms] cubic-bezier(0.15, 0.85, 0.15, 1) px-32 whitespace-nowrap">
+                    <div class="w-24 h-24 rounded-2xl bg-red-600 border-2 border-white flex flex-col items-center justify-center text-white font-black text-lg shrink-0 shadow-lg">TÀI</div>
+                    <div class="w-24 h-24 rounded-2xl bg-sky-600 border-2 border-white flex flex-col items-center justify-center text-white font-black text-lg shrink-0 shadow-lg">XỈU</div>
+                    <div class="w-24 h-24 rounded-2xl bg-red-600 border-2 border-white flex flex-col items-center justify-center text-white font-black text-lg shrink-0 shadow-lg">TÀI</div>
+                    <div class="w-24 h-24 rounded-2xl bg-sky-600 border-2 border-white flex flex-col items-center justify-center text-white font-black text-lg shrink-0 shadow-lg">XỈU</div>
+                    <div class="w-24 h-24 rounded-2xl bg-red-600 border-2 border-white flex flex-col items-center justify-center text-white font-black text-lg shrink-0 shadow-lg">TÀI</div>
+                    <div class="w-24 h-24 rounded-2xl bg-sky-600 border-2 border-white flex flex-col items-center justify-center text-white font-black text-lg shrink-0 shadow-lg">XỈU</div>
+                </div>
+            </div>
+
+            <div id="jackpotPayoutAnnouncement" class="text-sm font-bold text-amber-300 mb-4 min-h-[30px]">
+                Đang quay vòng quay chia thưởng hũ...
+            </div>
+
+            <button id="closeJackpotBtn" onclick="closeJackpotModal()" style="display: none;" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black text-sm uppercase shadow-lg hover:brightness-110 transition">
+                NHẬN THƯỞNG VÀ TIẾP TỤC
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL 3: GIT DEPLOY -->
     <div id="gitModal" style="display: none;" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 is-hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border-2 border-sky-400 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeGitModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
@@ -804,35 +791,24 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-black text-white">Deploy Lên GitHub Pages Bằng Linux Terminal</h3>
-                    <p class="text-xs text-slate-400">Không cần cài IDE — Chỉ cần dùng Terminal có sẵn trên Linux</p>
+                    <p class="text-xs text-slate-400">Không cần cài IDE — Terminal Linux có sẵn</p>
                 </div>
             </div>
 
             <div class="space-y-3 text-xs sm:text-sm text-slate-300">
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div class="font-bold text-sky-400 mb-1">Bước 1: Tạo thư mục và lưu file `index.html`</div>
-                    <pre class="bg-black/80 text-emerald-400 p-2.5 rounded-lg overflow-x-auto font-mono text-xs">mkdir tai-xiu-web && cd tai-xiu-web
-nano index.html
-# Dán toàn bộ code vào, sau đó nhấn Ctrl+O -> Enter để lưu, Ctrl+X để thoát.</pre>
+                    <div class="font-bold text-sky-400 mb-1">Bước 1: Lưu file `index.html`</div>
+                    <pre class="bg-black/80 text-emerald-400 p-2.5 rounded-lg overflow-x-auto font-mono text-xs">nano index.html
+# Dán code vào, nhấn Ctrl+O -> Enter để lưu, Ctrl+X để thoát.</pre>
                 </div>
-
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div class="font-bold text-sky-400 mb-1">Bước 2: Chạy thử ngay trên máy Linux (Tuỳ chọn)</div>
-                    <pre class="bg-black/80 text-emerald-400 p-2.5 rounded-lg overflow-x-auto font-mono text-xs">python3 -m http.server 8080
-# Mở trình duyệt vào: http://localhost:8080</pre>
-                </div>
-
-                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <div class="font-bold text-sky-400 mb-1">Bước 3: Đẩy code lên Git & Bật GitHub Pages</div>
+                    <div class="font-bold text-sky-400 mb-1">Bước 2: Đẩy lên Git</div>
                     <pre class="bg-black/80 text-amber-300 p-2.5 rounded-lg overflow-x-auto font-mono text-xs">git init
 git branch -M main
 git add index.html
-git commit -m "Deploy web Tai Xiu bat trang"
-git remote add origin https://github.com/&lt;TEN_USER_CUA_BAN&gt;/tai-xiu-web.git
+git commit -m "Update No Hu & Cap Nap Tien"
+git remote add origin https://github.com/&lt;TEN_USER&gt;/&lt;REPO&gt;.git
 git push -u origin main</pre>
-                    <button onclick="copyGitCommands()" class="mt-2 px-3 py-1.5 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/50 text-sky-300 text-xs font-bold">
-                        <i class="fa-regular fa-copy mr-1"></i> Copy cụm lệnh Git
-                    </button>
                 </div>
             </div>
         </div>
@@ -849,13 +825,9 @@ git push -u origin main</pre>
         function getAudioContext() {
             if (!audioCtx) {
                 const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                if (AudioContextClass) {
-                    audioCtx = new AudioContextClass();
-                }
+                if (AudioContextClass) audioCtx = new AudioContextClass();
             }
-            if (audioCtx && audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
             return audioCtx;
         }
 
@@ -866,6 +838,7 @@ git push -u origin main</pre>
             if (soundEnabled) playSound('chip');
         }
 
+        /* CUSTOM ACOUSTIC RUMBLE / RATTLING SOUND EFFECT */
         function playSound(type) {
             if (!soundEnabled) return;
             const ctx = getAudioContext();
@@ -879,10 +852,8 @@ git push -u origin main</pre>
                 osc.frequency.setValueAtTime(880, now);
                 gain.gain.setValueAtTime(0.05, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.06);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(now); osc.stop(now + 0.06);
             } else if (type === 'lockTick') {
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
@@ -890,10 +861,8 @@ git push -u origin main</pre>
                 osc.frequency.setValueAtTime(1240, now);
                 gain.gain.setValueAtTime(0.09, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.09);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(now); osc.stop(now + 0.09);
             } else if (type === 'chip') {
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
@@ -902,10 +871,8 @@ git push -u origin main</pre>
                 osc.frequency.exponentialRampToValueAtTime(3400, now + 0.05);
                 gain.gain.setValueAtTime(0.14, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.08);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(now); osc.stop(now + 0.08);
             } else if (type === 'chat') {
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
@@ -914,10 +881,8 @@ git push -u origin main</pre>
                 osc.frequency.exponentialRampToValueAtTime(990, now + 0.07);
                 gain.gain.setValueAtTime(0.08, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.09);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(now); osc.stop(now + 0.09);
             } else if (type === 'error') {
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
@@ -926,23 +891,32 @@ git push -u origin main</pre>
                 osc.frequency.setValueAtTime(130, now + 0.1);
                 gain.gain.setValueAtTime(0.16, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.24);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(now); osc.stop(now + 0.24);
             } else if (type === 'rattle') {
-                const osc = ctx.createOscillator();
+                // Custom realistic acoustic dice rattling rumble sound
+                const bufferSize = ctx.sampleRate * 0.05;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.015));
+                }
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+                
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.value = 320 + Math.random() * 650;
+                filter.Q.value = 4.0;
+
                 const gain = ctx.createGain();
-                osc.type = 'triangle';
-                const freq = 600 + Math.random() * 1200;
-                osc.frequency.setValueAtTime(freq, now);
-                osc.frequency.exponentialRampToValueAtTime(250, now + 0.045);
-                gain.gain.setValueAtTime(0.14, now);
+                gain.gain.setValueAtTime(0.35, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
-                osc.connect(gain);
+
+                noise.connect(filter);
+                filter.connect(gain);
                 gain.connect(ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.05);
+                noise.start(now);
             } else if (type === 'win') {
                 const notes = [523.25, 659.25, 783.99, 1046.5];
                 notes.forEach((freq, idx) => {
@@ -952,10 +926,8 @@ git push -u origin main</pre>
                     osc.frequency.setValueAtTime(freq, now + idx * 0.08);
                     gain.gain.setValueAtTime(0.16, now + idx * 0.08);
                     gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.45);
-                    osc.connect(gain);
-                    gain.connect(ctx.destination);
-                    osc.start(now + idx * 0.08);
-                    osc.stop(now + idx * 0.08 + 0.45);
+                    osc.connect(gain); gain.connect(ctx.destination);
+                    osc.start(now + idx * 0.08); osc.stop(now + idx * 0.08 + 0.45);
                 });
             } else if (type === 'openBowl') {
                 const osc = ctx.createOscillator();
@@ -965,20 +937,12 @@ git push -u origin main</pre>
                 osc.frequency.exponentialRampToValueAtTime(880, now + 0.18);
                 gain.gain.setValueAtTime(0.12, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now);
-                osc.stop(now + 0.2);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(now); osc.stop(now + 0.2);
             }
         }
 
-        const PHASES = {
-            BETTING: 'BETTING',
-            SHAKING: 'SHAKING',
-            PEEKING: 'PEEKING',
-            RESULT: 'RESULT'
-        };
-
+        const PHASES = { BETTING: 'BETTING', SHAKING: 'SHAKING', PEEKING: 'PEEKING', RESULT: 'RESULT' };
         const ROUND_CYCLE_SECONDS = 48;
 
         function hashSeed(str) {
@@ -1025,12 +989,7 @@ git push -u origin main</pre>
             for (let s = currentSessionId - 16; s < currentSessionId; s++) {
                 const dice = getDiceForSession(roomCode, s);
                 const sum = dice[0] + dice[1] + dice[2];
-                list.push({
-                    sessionId: s,
-                    side: sum >= 11 ? 'TAI' : 'XIU',
-                    sum,
-                    dice
-                });
+                list.push({ sessionId: s, side: sum >= 11 ? 'TAI' : 'XIU', sum, dice });
             }
             return list;
         }
@@ -1041,6 +1000,7 @@ git push -u origin main</pre>
             userId: 'user-' + Math.random().toString(36).substring(2, 10),
             sessionId: 882941,
             balance: 10000000,
+            jackpotFund: 188450200,
             selectedChip: 10000,
             isNanMode: true,
             phase: PHASES.BETTING,
@@ -1054,7 +1014,7 @@ git push -u origin main</pre>
             crowdBet: { TAI: 45000000, XIU: 42000000 },
             crowdPlayers: { TAI: 120, XIU: 115 },
             currentDice: [4, 5, 6],
-            bowlOpened: false,
+            bowlOpened: false, // INDEPENDENT per user in current session
             paidOutSessionId: null,
             history: []
         };
@@ -1154,20 +1114,14 @@ git push -u origin main</pre>
 
         function connectRealtimeWebSocket() {
             const topic = `taixiu_royal_v2/${state.roomCode}`;
-
             if ('BroadcastChannel' in window) {
                 if (localBroadcastChannel) localBroadcastChannel.close();
                 localBroadcastChannel = new BroadcastChannel(topic);
-                localBroadcastChannel.onmessage = (ev) => {
-                    if (ev.data) handleIncomingRealtimeEvent(ev.data);
-                };
+                localBroadcastChannel.onmessage = (ev) => { if (ev.data) handleIncomingRealtimeEvent(ev.data); };
             }
 
             try {
-                if (wsClient) {
-                    wsClient.onclose = null;
-                    wsClient.close();
-                }
+                if (wsClient) { wsClient.onclose = null; wsClient.close(); }
                 if (wsKeepAliveTimer) clearInterval(wsKeepAliveTimer);
 
                 updateWsStatusUI(false, `Đang nối WS (${state.roomCode})...`);
@@ -1184,21 +1138,14 @@ git push -u origin main</pre>
                     const bytes = new Uint8Array(event.data);
                     if (bytes.length < 2) return;
                     const packetType = bytes[0] >> 4;
-
                     if (packetType === 2) {
                         ws.send(buildMqttSubscribePacket(topic, 1));
                         updateWsStatusUI(true, `WS Live • ${state.roomCode}`);
-
                         wsKeepAliveTimer = setInterval(() => {
-                            if (ws.readyState === WebSocket.OPEN) {
-                                ws.send(new Uint8Array([0xc0, 0x00]));
-                            }
+                            if (ws.readyState === WebSocket.OPEN) ws.send(new Uint8Array([0xc0, 0x00]));
                         }, 25000);
                     } else if (packetType === 3) {
-                        let multiplier = 1;
-                        let remLength = 0;
-                        let idx = 1;
-                        let encodedByte;
+                        let multiplier = 1, remLength = 0, idx = 1, encodedByte;
                         do {
                             encodedByte = bytes[idx++];
                             remLength += (encodedByte & 127) * multiplier;
@@ -1208,23 +1155,17 @@ git push -u origin main</pre>
                         const topicLen = (bytes[idx] << 8) | bytes[idx + 1];
                         const payloadStart = idx + 2 + topicLen;
                         const payloadBytes = bytes.slice(payloadStart, idx + remLength);
-                        const jsonStr = new TextDecoder().decode(payloadBytes);
                         try {
-                            const data = JSON.parse(jsonStr);
+                            const data = JSON.parse(new TextDecoder().decode(payloadBytes));
                             handleIncomingRealtimeEvent(data);
                         } catch (err) {}
                     }
                 };
 
-                ws.onerror = () => {
-                    updateWsStatusUI(Boolean(fbUser), fbUser ? `Cloud Live • ${state.roomCode}` : `Đồng bộ • ${state.roomCode}`);
-                };
-
+                ws.onerror = () => { updateWsStatusUI(Boolean(fbUser), fbUser ? `Cloud Live • ${state.roomCode}` : `Đồng bộ • ${state.roomCode}`); };
                 ws.onclose = () => {
                     if (wsKeepAliveTimer) clearInterval(wsKeepAliveTimer);
-                    setTimeout(() => {
-                        if (wsClient === ws) connectRealtimeWebSocket();
-                    }, 4000);
+                    setTimeout(() => { if (wsClient === ws) connectRealtimeWebSocket(); }, 4000);
                 };
             } catch (e) {
                 updateWsStatusUI(Boolean(fbUser), `Phòng • ${state.roomCode}`);
@@ -1300,27 +1241,16 @@ git push -u origin main</pre>
         }
 
         let unsubscribeFirestoreChat = null;
-
         function subscribeFirestoreEvents() {
             if (!fbUser || !fbDb) return;
             if (unsubscribeFirestoreChat) unsubscribeFirestoreChat();
-
             const eventsCol = collection(fbDb, 'artifacts', appId, 'public', 'data', 'taixiu_events');
-            unsubscribeFirestoreChat = onSnapshot(
-                eventsCol,
-                (snapshot) => {
-                    const docs = [];
-                    snapshot.forEach((docSnap) => {
-                        docs.push(docSnap.data());
-                    });
-                    docs.sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
-                    const recentDocs = docs.slice(-35);
-                    recentDocs.forEach((item) => {
-                        handleIncomingRealtimeEvent(item);
-                    });
-                },
-                (err) => {}
-            );
+            unsubscribeFirestoreChat = onSnapshot(eventsCol, (snapshot) => {
+                const docs = [];
+                snapshot.forEach((docSnap) => docs.push(docSnap.data()));
+                docs.sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+                docs.slice(-35).forEach((item) => handleIncomingRealtimeEvent(item));
+            }, (err) => {});
         }
 
         async function broadcastRealtimeEvent(type, payload = {}) {
@@ -1339,17 +1269,11 @@ git push -u origin main</pre>
 
             const topic = `taixiu_royal_v2/${state.roomCode}`;
             if (wsClient && wsClient.readyState === WebSocket.OPEN) {
-                try {
-                    wsClient.send(buildMqttPublishPacket(topic, JSON.stringify(eventObj)));
-                } catch (e) {}
+                try { wsClient.send(buildMqttPublishPacket(topic, JSON.stringify(eventObj))); } catch (e) {}
             }
-
             if (localBroadcastChannel) {
-                try {
-                    localBroadcastChannel.postMessage(eventObj);
-                } catch (e) {}
+                try { localBroadcastChannel.postMessage(eventObj); } catch (e) {}
             }
-
             if (fbUser && fbDb) {
                 try {
                     const eventsCol = collection(fbDb, 'artifacts', appId, 'public', 'data', 'taixiu_events');
@@ -1367,23 +1291,10 @@ git push -u origin main</pre>
             const isMe = data.senderId === state.userId;
 
             if (data.type === 'CHAT') {
-                appendChatMessageUI({
-                    senderName: data.senderName,
-                    senderId: data.senderId,
-                    text: data.text,
-                    timestamp: data.timestamp,
-                    isMe,
-                    kind: 'chat'
-                });
+                appendChatMessageUI({ senderName: data.senderName, senderId: data.senderId, text: data.text, timestamp: data.timestamp, isMe, kind: 'chat' });
                 if (!isMe) playSound('chat');
             } else if (data.type === 'JOIN') {
-                appendChatMessageUI({
-                    senderName: data.senderName,
-                    text: `vừa tham gia bàn chơi ${data.roomCode}!`,
-                    timestamp: data.timestamp,
-                    isMe,
-                    kind: 'system_join'
-                });
+                appendChatMessageUI({ senderName: data.senderName, text: `vừa tham gia bàn chơi ${data.roomCode}!`, timestamp: data.timestamp, isMe, kind: 'system_join' });
             } else if (data.type === 'BET') {
                 if (!isMe && data.sessionId === state.sessionId) {
                     if (data.side === 'TAI') {
@@ -1395,112 +1306,44 @@ git push -u origin main</pre>
                     }
                     updateBetDisplays();
                 }
-                appendChatMessageUI({
-                    senderName: data.senderName,
-                    side: data.side,
-                    amount: data.amount,
-                    sessionId: data.sessionId,
-                    timestamp: data.timestamp,
-                    isMe,
-                    kind: 'system_bet'
-                });
-            } else if (data.type === 'OPEN_BOWL') {
-                if (!isMe && data.sessionId === state.sessionId && state.phase === PHASES.PEEKING && !state.bowlOpened) {
-                    showToast(`${data.senderName} vừa nặn mở bát phiên #${state.sessionId}!`, 'success');
-                    openBowlFully('friend_opened', false);
-                }
+                appendChatMessageUI({ senderName: data.senderName, side: data.side, amount: data.amount, sessionId: data.sessionId, timestamp: data.timestamp, isMe, kind: 'system_bet' });
             } else if (data.type === 'WIN') {
-                appendChatMessageUI({
-                    senderName: data.senderName,
-                    side: data.side,
-                    payout: data.payout,
-                    sessionId: data.sessionId,
-                    timestamp: data.timestamp,
-                    isMe,
-                    kind: 'system_win'
-                });
+                appendChatMessageUI({ senderName: data.senderName, side: data.side, payout: data.payout, sessionId: data.sessionId, timestamp: data.timestamp, isMe, kind: 'system_win' });
+            } else if (data.type === 'JACKPOT') {
+                triggerJackpotLuckyWheel(data.dice, data.jackpotAmount, data.winnerSide);
             }
         }
 
         function appendChatMessageUI(msg) {
             const container = document.getElementById('chatMessagesContainer');
             if (!container) return;
-
             const wrapper = document.createElement('div');
             wrapper.className = 'chat-message-enter';
-
-            const timeStr = new Date(msg.timestamp || Date.now()).toLocaleTimeString('vi-VN', {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
+            const timeStr = new Date(msg.timestamp || Date.now()).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
 
             if (msg.kind === 'system_join') {
-                wrapper.innerHTML = `
-                    <div class="px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-[11px] text-slate-300 flex items-center gap-1.5">
-                        <i class="fa-solid fa-user-plus text-emerald-400"></i>
-                        <span><strong class="text-amber-300">${escapeHtml(msg.senderName)}</strong> ${escapeHtml(msg.text)}</span>
-                    </div>
-                `;
+                wrapper.innerHTML = `<div class="px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-[11px] text-slate-300 flex items-center gap-1.5"><i class="fa-solid fa-user-plus text-emerald-400"></i><span><strong class="text-amber-300">${escapeHtml(msg.senderName)}</strong> ${escapeHtml(msg.text)}</span></div>`;
             } else if (msg.kind === 'system_bet') {
                 const isTai = msg.side === 'TAI';
-                const badgeClass = isTai
-                    ? 'bg-red-950/80 border-red-500/40 text-red-200'
-                    : 'bg-sky-950/80 border-sky-500/40 text-sky-200';
-                const sideText = isTai ? 'TÀI' : 'XỈU';
-                wrapper.innerHTML = `
-                    <div class="px-3 py-1.5 rounded-xl border ${badgeClass} text-[11px] flex items-center justify-between gap-2">
-                        <div>
-                            <i class="fa-solid fa-coins text-amber-400 mr-1"></i>
-                            <strong class="text-white">${escapeHtml(msg.senderName)}</strong> đặt
-                            <strong class="text-amber-300 font-digital">${formatMoney(msg.amount)}đ</strong> cửa
-                            <span class="font-black underline">${sideText}</span>
-                        </div>
-                        <span class="text-[10px] opacity-70 font-digital">#${msg.sessionId}</span>
-                    </div>
-                `;
+                const badgeClass = isTai ? 'bg-red-950/80 border-red-500/40 text-red-200' : 'bg-sky-950/80 border-sky-500/40 text-sky-200';
+                wrapper.innerHTML = `<div class="px-3 py-1.5 rounded-xl border ${badgeClass} text-[11px] flex items-center justify-between gap-2"><div><i class="fa-solid fa-coins text-amber-400 mr-1"></i><strong class="text-white">${escapeHtml(msg.senderName)}</strong> đặt <strong class="text-amber-300 font-digital">${formatMoney(msg.amount)}đ</strong> cửa <span class="font-black underline">${isTai ? 'TÀI' : 'XỈU'}</span></div><span class="text-[10px] opacity-70 font-digital">#${msg.sessionId}</span></div>`;
             } else if (msg.kind === 'system_win') {
-                wrapper.innerHTML = `
-                    <div class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-950/90 to-emerald-950/90 border border-amber-400/60 text-[11px] text-amber-200 flex items-center justify-between gap-2">
-                        <div>
-                            <i class="fa-solid fa-trophy text-amber-400 mr-1"></i>
-                            <strong class="text-white">${escapeHtml(msg.senderName)}</strong> húp
-                            <strong class="text-emerald-300 font-digital">+${formatMoney(msg.payout)}đ</strong>!
-                        </div>
-                        <span class="text-[10px] text-amber-300 font-digital">#${msg.sessionId}</span>
-                    </div>
-                `;
+                wrapper.innerHTML = `<div class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-950/90 to-emerald-950/90 border border-amber-400/60 text-[11px] text-amber-200 flex items-center justify-between gap-2"><div><i class="fa-solid fa-trophy text-amber-400 mr-1"></i><strong class="text-white">${escapeHtml(msg.senderName)}</strong> húp <strong class="text-emerald-300 font-digital">+${formatMoney(msg.payout)}đ</strong>!</div><span class="text-[10px] text-amber-300 font-digital">#${msg.sessionId}</span></div>`;
             } else {
                 const alignClass = msg.isMe ? 'items-end' : 'items-start';
-                const bubbleClass = msg.isMe
-                    ? 'bg-gradient-to-r from-amber-500/25 to-yellow-600/20 border-amber-400/50 text-amber-100'
-                    : 'bg-slate-800/90 border-slate-700 text-slate-100';
+                const bubbleClass = msg.isMe ? 'bg-gradient-to-r from-amber-500/25 to-yellow-600/20 border-amber-400/50 text-amber-100' : 'bg-slate-800/90 border-slate-700 text-slate-100';
                 const nameColor = msg.isMe ? 'text-amber-300' : 'text-sky-300';
-
                 wrapper.className = `chat-message-enter flex flex-col ${alignClass}`;
-                wrapper.innerHTML = `
-                    <div class="flex items-center gap-1.5 mb-0.5 px-1">
-                        <span class="text-[11px] font-extrabold ${nameColor}">${escapeHtml(msg.senderName)}${msg.isMe ? ' (Bạn)' : ''}</span>
-                        <span class="text-[10px] text-slate-500">${timeStr}</span>
-                    </div>
-                    <div class="max-w-[90%] px-3 py-2 rounded-2xl border ${bubbleClass} text-xs sm:text-sm break-words shadow">
-                        ${escapeHtml(msg.text)}
-                    </div>
-                `;
+                wrapper.innerHTML = `<div class="flex items-center gap-1.5 mb-0.5 px-1"><span class="text-[11px] font-extrabold ${nameColor}">${escapeHtml(msg.senderName)}${msg.isMe ? ' (Bạn)' : ''}</span><span class="text-[10px] text-slate-500">${timeStr}</span></div><div class="max-w-[90%] px-3 py-2 rounded-2xl border ${bubbleClass} text-xs sm:text-sm break-words shadow">${escapeHtml(msg.text)}</div>`;
             }
 
             container.appendChild(wrapper);
-            while (container.children.length > 60) {
-                container.removeChild(container.firstChild);
-            }
+            while (container.children.length > 60) container.removeChild(container.firstChild);
             container.scrollTop = container.scrollHeight;
         }
 
         function escapeHtml(str) {
-            return String(str || '')
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;');
+            return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
 
         function handleChatSubmit(e) {
@@ -1538,26 +1381,15 @@ git push -u origin main</pre>
             if (nameInp) nameInp.value = state.playerName;
             if (roomInp) roomInp.value = state.roomCode;
             setElementVisible('nameEntryModal', true, 'flex');
-            setTimeout(() => {
-                const el = document.getElementById('playerNameInput');
-                if (el) el.focus();
-            }, 50);
         }
 
         function updatePlayerProfileUI() {
             const nameEl = document.getElementById('playerNameDisplay');
             const roomEl = document.getElementById('roomCodeBadge');
             const avatarEl = document.getElementById('headerAvatarBadge');
-
             if (nameEl) nameEl.textContent = state.playerName;
             if (roomEl) roomEl.textContent = state.roomCode;
-
-            const initials = state.playerName
-                .split(' ')
-                .filter(Boolean)
-                .slice(0, 2)
-                .map(w => w[0].toUpperCase())
-                .join('') || 'VIP';
+            const initials = state.playerName.split(' ').filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('') || 'VIP';
             if (avatarEl) avatarEl.textContent = initials;
         }
 
@@ -1569,8 +1401,7 @@ git push -u origin main</pre>
 
             if (!rawName) {
                 playSound('error');
-                showToast('Vui lòng nhập tên hiển thị của bạn trước khi vào bàn!', 'warning');
-                if (nameInp) nameInp.focus();
+                showToast('Vui lòng nhập tên hiển thị của bạn!', 'warning');
                 return;
             }
 
@@ -1608,9 +1439,7 @@ git push -u origin main</pre>
                 if (anchor) {
                     const badge = document.createElement('div');
                     const isPositive = delta > 0;
-                    badge.className = `floating-money font-digital font-black text-xs sm:text-sm px-2 py-0.5 rounded-md shadow-lg whitespace-nowrap ${
-                        isPositive ? 'bg-emerald-500 text-slate-950' : 'bg-rose-600 text-white'
-                    }`;
+                    badge.className = `floating-money font-digital font-black text-xs sm:text-sm px-2 py-0.5 rounded-md shadow-lg whitespace-nowrap ${isPositive ? 'bg-emerald-500 text-slate-950' : 'bg-rose-600 text-white'}`;
                     badge.textContent = (isPositive ? '+' : '') + formatMoney(delta) + ' đ';
                     anchor.appendChild(badge);
                     setTimeout(() => badge.remove(), 1500);
@@ -1618,30 +1447,27 @@ git push -u origin main</pre>
             }
         }
 
+        function updateJackpotUI() {
+            const el = document.getElementById('jackpotDisplay');
+            if (el) el.textContent = formatMoney(state.jackpotFund) + ' đ';
+        }
+
         let lastToastTime = 0;
         function showToast(message, type = 'warning') {
             const now = Date.now();
             if (now - lastToastTime < 350) return;
             lastToastTime = now;
-
             const container = document.getElementById('toastContainer');
             if (!container) return;
 
             const toast = document.createElement('div');
             let colors = 'bg-amber-500 border-amber-200 text-slate-950';
             let icon = 'fa-triangle-exclamation';
+            if (type === 'error') { colors = 'bg-gradient-to-r from-red-600 via-rose-600 to-red-700 border-amber-300 text-white'; icon = 'fa-ban'; }
+            else if (type === 'success') { colors = 'bg-gradient-to-r from-emerald-500 to-teal-600 border-emerald-200 text-slate-950'; icon = 'fa-circle-check'; }
 
-            if (type === 'error') {
-                colors = 'bg-gradient-to-r from-red-600 via-rose-600 to-red-700 border-amber-300 text-white';
-                icon = 'fa-ban';
-            } else if (type === 'success') {
-                colors = 'bg-gradient-to-r from-emerald-500 to-teal-600 border-emerald-200 text-slate-950';
-                icon = 'fa-circle-check';
-            }
-
-            toast.className = `${colors} border-2 px-4 py-2.5 rounded-2xl shadow-2xl font-extrabold text-xs sm:text-sm flex items-center gap-2.5 transition-all duration-300 transform translate-y-0`;
+            toast.className = `${colors} border-2 px-4 py-2.5 rounded-2xl shadow-2xl font-extrabold text-xs sm:text-sm flex items-center gap-2.5 transition-all duration-300`;
             toast.innerHTML = `<i class="fa-solid ${icon} text-base"></i><span>${message}</span>`;
-
             container.appendChild(toast);
             setTimeout(() => {
                 toast.style.opacity = '0';
@@ -1654,7 +1480,6 @@ git push -u origin main</pre>
             const dieEl = document.getElementById(elementId);
             if (!dieEl) return;
             dieEl.innerHTML = '';
-
             const activeCells = PIP_POSITIONS[value] || [4];
             const isRedValue = (value === 1 || value === 4);
 
@@ -1663,22 +1488,14 @@ git push -u origin main</pre>
                 cell.className = 'flex items-center justify-center';
                 if (activeCells.includes(i)) {
                     const pip = document.createElement('div');
-                    if (value === 1) {
-                        pip.className = 'pip ace';
-                    } else {
-                        pip.className = `pip ${isRedValue ? 'red' : 'black'}`;
-                    }
+                    pip.className = value === 1 ? 'pip ace' : `pip ${isRedValue ? 'red' : 'black'}`;
                     cell.appendChild(pip);
                 }
                 dieEl.appendChild(cell);
             }
 
             if (randomizePos) {
-                const baseCoords = [
-                    { top: 34, left: 45 },
-                    { top: 40, left: 112 },
-                    { top: 105, left: 78 }
-                ];
+                const baseCoords = [{ top: 34, left: 45 }, { top: 40, left: 112 }, { top: 105, left: 78 }];
                 const seed = hashSeed(`${state.roomCode}_${state.sessionId}_POS_${index}`);
                 const rand = mulberry32(seed);
                 const jitterX = Math.floor(rand() * 14) - 7;
@@ -1700,31 +1517,19 @@ git push -u origin main</pre>
             const container = document.getElementById('historyBeadContainer');
             if (!container) return;
             container.innerHTML = '';
-
-            let taiCount = 0;
-            let xiuCount = 0;
+            let taiCount = 0, xiuCount = 0;
 
             state.history.forEach((item, idx) => {
-                if (item.side === 'TAI') taiCount++;
-                else xiuCount++;
-
+                if (item.side === 'TAI') taiCount++; else xiuCount++;
                 const isLatest = idx === state.history.length - 1;
                 const bead = document.createElement('div');
-
                 if (item.side === 'TAI') {
-                    bead.className = `w-7 h-7 sm:w-8 sm:h-8 rounded-full shrink-0 flex items-center justify-center font-digital font-black text-xs bg-slate-950 text-amber-300 border-2 ${
-                        isLatest ? 'border-amber-400 ring-2 ring-red-500 animate-pulse' : 'border-red-500/80'
-                    } shadow`;
-                    bead.title = `#${item.sessionId || ''}: TÀI (${item.sum} điểm: ${item.dice.join('-')})`;
+                    bead.className = `w-7 h-7 sm:w-8 sm:h-8 rounded-full shrink-0 flex items-center justify-center font-digital font-black text-xs bg-slate-950 text-amber-300 border-2 ${isLatest ? 'border-amber-400 ring-2 ring-red-500 animate-pulse' : 'border-red-500/80'} shadow`;
                     bead.textContent = item.sum;
                 } else {
-                    bead.className = `w-7 h-7 sm:w-8 sm:h-8 rounded-full shrink-0 flex items-center justify-center font-digital font-black text-xs bg-white text-slate-900 border-2 ${
-                        isLatest ? 'border-amber-400 ring-2 ring-sky-400 animate-pulse' : 'border-sky-400'
-                    } shadow`;
-                    bead.title = `#${item.sessionId || ''}: XỈU (${item.sum} điểm: ${item.dice.join('-')})`;
+                    bead.className = `w-7 h-7 sm:w-8 sm:h-8 rounded-full shrink-0 flex items-center justify-center font-digital font-black text-xs bg-white text-slate-900 border-2 ${isLatest ? 'border-amber-400 ring-2 ring-sky-400 animate-pulse' : 'border-sky-400'} shadow`;
                     bead.textContent = item.sum;
                 }
-
                 container.appendChild(bead);
             });
 
@@ -1747,16 +1552,14 @@ git push -u origin main</pre>
             state.isNanMode = !state.isNanMode;
             const badgeOn = document.getElementById('nanBadgeOn');
             const badgeOff = document.getElementById('nanBadgeOff');
-
             if (state.isNanMode) {
                 if (badgeOn) badgeOn.className = 'px-2.5 py-1 rounded-lg text-xs font-extrabold bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 shadow';
                 if (badgeOff) badgeOff.className = 'px-2.5 py-1 rounded-lg text-xs font-bold text-slate-400';
-                showToast('Đã bật chế độ: TỰ TAY KÉO NẮP BÁT NẶN!', 'success');
+                showToast('Đã bật chế độ: TỰ TAY NẶN BÁT!', 'success');
             } else {
                 if (badgeOn) badgeOn.className = 'px-2.5 py-1 rounded-lg text-xs font-bold text-slate-400';
                 if (badgeOff) badgeOff.className = 'px-2.5 py-1 rounded-lg text-xs font-extrabold bg-gradient-to-r from-sky-400 to-blue-500 text-slate-950 shadow';
-                showToast('Đã chuyển sang: TỰ ĐỘNG MỞ BÁT (Không nặn)', 'success');
-
+                showToast('Đã chuyển sang: MỞ BÁT TỰ ĐỘNG', 'success');
                 if (state.phase === PHASES.PEEKING && !state.bowlOpened) {
                     openBowlFully('auto_toggle', true);
                 }
@@ -1792,10 +1595,9 @@ git push -u origin main</pre>
                     phaseBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> ĐANG MỞ CƯỢC (${state.betTimeLeft}s)`;
                     phaseBadge.className = 'text-emerald-400 font-semibold flex items-center gap-1';
                 }
-
                 const instrBanner = document.getElementById('instructionBanner');
                 if (instrBanner) {
-                    instrBanner.innerHTML = `Đang mở cược (<strong class="text-emerald-300 font-digital">${state.betTimeLeft}s</strong>) — Đặt vào <span class="text-red-400 font-extrabold">TÀI</span> hoặc <span class="text-sky-400 font-extrabold">XỈU</span>`;
+                    instrBanner.innerHTML = `Đang mở cược (<strong class="text-emerald-300 font-digital">${state.betTimeLeft}s</strong>) — Đặt cược 1% vào Hũ Jackpot`;
                 }
                 return;
             }
@@ -1813,7 +1615,6 @@ git push -u origin main</pre>
                         phaseBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> KHÓA CƯỢC (&lt; 8s • Còn ${state.betTimeLeft}s)`;
                         phaseBadge.className = 'text-red-400 font-semibold flex items-center gap-1';
                     }
-
                     const instrBanner = document.getElementById('instructionBanner');
                     if (instrBanner) {
                         instrBanner.innerHTML = `<span class="text-red-400 font-extrabold"><i class="fa-solid fa-lock mr-1"></i> ĐÃ KHÓA CƯỢC (Còn ${state.betTimeLeft}s) — Bạn chưa vào tiền phiên này!</span>`;
@@ -1824,17 +1625,6 @@ git push -u origin main</pre>
                     if (zoneXiu) zoneXiu.classList.remove('locked');
                     setElementVisible('lockBadgeTai', false);
                     setElementVisible('lockBadgeXiu', false);
-
-                    const phaseBadge = document.getElementById('gamePhaseBadge');
-                    if (phaseBadge) {
-                        phaseBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span> Sắp lắc bát (${state.betTimeLeft}s)`;
-                        phaseBadge.className = 'text-amber-300 font-semibold flex items-center gap-1';
-                    }
-
-                    const instrBanner = document.getElementById('instructionBanner');
-                    if (instrBanner) {
-                        instrBanner.innerHTML = `<span class="text-amber-300 font-bold">Còn ${state.betTimeLeft}s trước khi lắc xúc xắc — Bạn đã vào cược phiên này!</span>`;
-                    }
                 }
                 return;
             }
@@ -1864,108 +1654,91 @@ git push -u origin main</pre>
                 showToast('Chỉ còn dưới 8 giây! Bạn chưa vào tiền nên đã khóa cược phiên này!', 'error');
                 return;
             }
-
             if (state.phase !== PHASES.BETTING) {
                 playSound('error');
                 triggerRejectShake(side);
-                showToast('Đang mở bát / chuẩn bị phiên mới, vui lòng chờ phiên sau!', 'error');
+                showToast('Đang mở bát / chuẩn bị phiên mới!', 'error');
                 return;
             }
 
             let amount = state.selectedChip === 'ALL_IN' ? state.balance : state.selectedChip;
-
             if (state.balance <= 0 || amount <= 0) {
                 playSound('error');
-                showToast('Số dư không đủ! Hãy nạp thêm miễn phí.', 'error');
+                showToast('Số dư không đủ! Hãy nạp thêm.', 'error');
                 openTopUpModal();
                 return;
             }
+            if (amount > state.balance) amount = state.balance;
 
-            if (amount > state.balance) {
-                amount = state.balance;
-            }
+            // Apply 1% rake to Jackpot Fund
+            const rakeAmount = Math.floor(amount * 0.01);
+            const netBet = amount - rakeAmount;
 
             state.balance -= amount;
-            state.myBet[side] += amount;
+            state.jackpotFund += rakeAmount;
+            state.myBet[side] += netBet;
 
             playSound('chip');
             updateBalanceUI(-amount);
+            updateJackpotUI();
             updateBetDisplays();
             syncBettingUIState();
 
-            broadcastRealtimeEvent('BET', { side, amount });
+            broadcastRealtimeEvent('BET', { side, amount: netBet });
         }
 
         function repeatLastBet() {
             if (state.phase === PHASES.BETTING && state.betTimeLeft <= 8 && !hasPlayerPlacedBetInCurrentRound()) {
-                playSound('error');
-                triggerRejectShake();
-                showToast('Chỉ còn dưới 8 giây! Bạn chưa vào tiền nên đã khóa cược phiên này!', 'error');
+                playSound('error'); triggerRejectShake();
+                showToast('Chỉ còn dưới 8 giây! Chưa vào tiền phiên này.', 'error');
                 return;
             }
-            if (state.phase !== PHASES.BETTING) {
-                playSound('error');
-                triggerRejectShake();
-                showToast('Đang mở bát / chuẩn bị phiên mới!', 'error');
-                return;
-            }
+            if (state.phase !== PHASES.BETTING) { playSound('error'); triggerRejectShake(); showToast('Đang mở bát!', 'error'); return; }
             const totalPrev = state.previousBet.TAI + state.previousBet.XIU;
-            if (totalPrev <= 0) {
-                showToast('Chưa có lịch sử cược ở phiên trước!', 'warning');
-                return;
-            }
-            if (state.balance < totalPrev) {
-                playSound('error');
-                showToast('Số dư không đủ để đặt lại phiên trước!', 'error');
-                return;
-            }
+            if (totalPrev <= 0) { showToast('Chưa có lịch sử cược!', 'warning'); return; }
+            if (state.balance < totalPrev) { playSound('error'); showToast('Số dư không đủ!', 'error'); return; }
 
+            const rake = Math.floor(totalPrev * 0.01);
+            const netTotal = totalPrev - rake;
             state.balance -= totalPrev;
-            state.myBet.TAI += state.previousBet.TAI;
-            state.myBet.XIU += state.previousBet.XIU;
+            state.jackpotFund += rake;
+            state.myBet.TAI += Math.floor(state.previousBet.TAI * 0.99);
+            state.myBet.XIU += Math.floor(state.previousBet.XIU * 0.99);
 
             playSound('chip');
             updateBalanceUI(-totalPrev);
+            updateJackpotUI();
             updateBetDisplays();
             syncBettingUIState();
 
-            if (state.previousBet.TAI > 0) broadcastRealtimeEvent('BET', { side: 'TAI', amount: state.previousBet.TAI });
-            if (state.previousBet.XIU > 0) broadcastRealtimeEvent('BET', { side: 'XIU', amount: state.previousBet.XIU });
-            showToast('Đã đặt lại mức cược của phiên trước!', 'success');
+            if (state.previousBet.TAI > 0) broadcastRealtimeEvent('BET', { side: 'TAI', amount: Math.floor(state.previousBet.TAI * 0.99) });
+            if (state.previousBet.XIU > 0) broadcastRealtimeEvent('BET', { side: 'XIU', amount: Math.floor(state.previousBet.XIU * 0.99) });
+            showToast('Đã đặt lại cược phiên trước!', 'success');
         }
 
         function doubleCurrentBet() {
             if (state.phase === PHASES.BETTING && state.betTimeLeft <= 8 && !hasPlayerPlacedBetInCurrentRound()) {
-                playSound('error');
-                triggerRejectShake();
-                showToast('Chỉ còn dưới 8 giây! Bạn chưa vào tiền nên đã khóa cược phiên này!', 'error');
+                playSound('error'); triggerRejectShake();
+                showToast('Chỉ còn dưới 8 giây! Chưa vào tiền.', 'error');
                 return;
             }
-            if (state.phase !== PHASES.BETTING) {
-                playSound('error');
-                triggerRejectShake();
-                showToast('Đang mở bát / chuẩn bị phiên mới!', 'error');
-                return;
-            }
+            if (state.phase !== PHASES.BETTING) { playSound('error'); triggerRejectShake(); showToast('Đang mở bát!', 'error'); return; }
             const currentTotal = state.myBet.TAI + state.myBet.XIU;
-            if (currentTotal <= 0) {
-                showToast('Bạn hãy đặt cược trước khi nhân đôi (X2)!', 'warning');
-                return;
-            }
-            if (state.balance < currentTotal) {
-                playSound('error');
-                showToast('Số dư không đủ để nhân đôi cược!', 'error');
-                return;
-            }
+            if (currentTotal <= 0) { showToast('Chưa có cược để X2!', 'warning'); return; }
+            if (state.balance < currentTotal) { playSound('error'); showToast('Số dư không đủ X2!', 'error'); return; }
 
             const addTai = state.myBet.TAI;
             const addXiu = state.myBet.XIU;
+            const rake = Math.floor(currentTotal * 0.01);
+
             state.balance -= currentTotal;
+            state.jackpotFund += rake;
             state.myBet.TAI *= 2;
             state.myBet.XIU *= 2;
 
             playSound('chip');
             updateBalanceUI(-currentTotal);
+            updateJackpotUI();
             updateBetDisplays();
             syncBettingUIState();
 
@@ -1981,17 +1754,16 @@ git push -u origin main</pre>
 
             const myTaiEl = document.getElementById('myBetTai');
             const myXiuEl = document.getElementById('myBetXiu');
-            const crowdTaiEl = document.getElementById('crowdMoneyTai');
-            const crowdXiuEl = document.getElementById('crowdMoneyXiu');
-            const countTaiEl = document.getElementById('crowdCountTai');
-            const countXiuEl = document.getElementById('crowdCountXiu');
-
             if (myTaiEl) myTaiEl.textContent = formatMoney(state.myBet.TAI);
             if (myXiuEl) myXiuEl.textContent = formatMoney(state.myBet.XIU);
-            if (crowdTaiEl) crowdTaiEl.textContent = formatMoney(totalTai);
-            if (crowdXiuEl) crowdXiuEl.textContent = formatMoney(totalXiu);
-            if (countTaiEl) countTaiEl.textContent = countTai;
-            if (countXiuEl) countXiuEl.textContent = countXiu;
+            const cTai = document.getElementById('crowdMoneyTai');
+            const cXiu = document.getElementById('crowdMoneyXiu');
+            if (cTai) cTai.textContent = formatMoney(totalTai);
+            if (cXiu) cXiu.textContent = formatMoney(totalXiu);
+            const ctTai = document.getElementById('crowdCountTai');
+            const ctXiu = document.getElementById('crowdCountXiu');
+            if (ctTai) ctTai.textContent = countTai;
+            if (ctXiu) ctXiu.textContent = countXiu;
         }
 
         function startVideoShakerEffect() {
@@ -2006,16 +1778,6 @@ git push -u origin main</pre>
                 { x: 165, y: 115, vx: -8, vy: 6, rot: 1.2, vRot: -0.28, val: 4 },
                 { x: 130, y: 165, vx: 6, vy: -7, rot: 2.4, vRot: 0.3, val: 6 }
             ];
-
-            const sparks = Array.from({ length: 24 }, () => ({
-                x: 135,
-                y: 135,
-                angle: Math.random() * Math.PI * 2,
-                radius: 20 + Math.random() * 85,
-                speed: 0.08 + Math.random() * 0.12,
-                size: 2 + Math.random() * 3
-            }));
-
             let frameCount = 0;
 
             function drawFrame() {
@@ -2023,99 +1785,46 @@ git push -u origin main</pre>
                     setElementVisible(overlay, false);
                     return;
                 }
-
                 frameCount++;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                 const grad = ctx.createRadialGradient(135, 135, 10, 135, 135, 125);
                 grad.addColorStop(0, 'rgba(255, 255, 255, 0.25)');
-                grad.addColorStop(0.7, 'rgba(253, 224, 71, 0.12)');
                 grad.addColorStop(1, 'rgba(15, 23, 42, 0.5)');
                 ctx.fillStyle = grad;
-                ctx.beginPath();
-                ctx.arc(135, 135, 125, 0, Math.PI * 2);
-                ctx.fill();
-
-                sparks.forEach(s => {
-                    s.angle += s.speed;
-                    const sx = 135 + Math.cos(s.angle) * s.radius;
-                    const sy = 135 + Math.sin(s.angle) * s.radius;
-                    ctx.fillStyle = '#fde047';
-                    ctx.beginPath();
-                    ctx.arc(sx, sy, s.size, 0, Math.PI * 2);
-                    ctx.fill();
-                });
+                ctx.beginPath(); ctx.arc(135, 135, 125, 0, Math.PI * 2); ctx.fill();
 
                 virtualDice.forEach(d => {
-                    d.x += d.vx;
-                    d.y += d.vy;
-                    d.rot += d.vRot;
-
-                    const dx = d.x - 135;
-                    const dy = d.y - 135;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    d.x += d.vx; d.y += d.vy; d.rot += d.vRot;
+                    const dx = d.x - 135, dy = d.y - 135, dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist > 68) {
-                        const nx = dx / dist;
-                        const ny = dy / dist;
-                        d.vx = -d.vx + (Math.random() - 0.5) * 4 - nx * 3;
-                        d.vy = -d.vy + (Math.random() - 0.5) * 4 - ny * 3;
+                        d.vx = -d.vx + (Math.random() - 0.5) * 4;
+                        d.vy = -d.vy + (Math.random() - 0.5) * 4;
                         d.val = Math.floor(Math.random() * 6) + 1;
                     }
-
                     ctx.save();
-                    ctx.translate(d.x, d.y);
-                    ctx.rotate(d.rot);
-                    ctx.shadowColor = 'rgba(0,0,0,0.45)';
-                    ctx.shadowBlur = 10;
-
-                    ctx.fillStyle = '#ffffff';
-                    ctx.strokeStyle = '#cbd5e1';
-                    ctx.lineWidth = 2;
-                    ctx.beginPath();
-                    ctx.roundRect(-23, -23, 46, 46, 10);
-                    ctx.fill();
-                    ctx.stroke();
-
+                    ctx.translate(d.x, d.y); ctx.rotate(d.rot);
+                    ctx.fillStyle = '#ffffff'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.roundRect(-23, -23, 46, 46, 10); ctx.fill(); ctx.stroke();
                     ctx.fillStyle = (d.val === 1 || d.val === 4) ? '#dc2626' : '#0f172a';
-                    ctx.beginPath();
-                    ctx.arc(0, 0, d.val === 1 ? 7 : 4.5, 0, Math.PI * 2);
-                    ctx.fill();
-
-                    if (d.val > 1) {
-                        ctx.beginPath();
-                        ctx.arc(-10, -10, 4, 0, Math.PI * 2);
-                        ctx.arc(10, 10, 4, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
+                    ctx.beginPath(); ctx.arc(0, 0, d.val === 1 ? 7 : 4.5, 0, Math.PI * 2); ctx.fill();
                     ctx.restore();
                 });
 
-                if (frameCount % 6 === 0) {
-                    playSound('rattle');
-                }
-
+                if (frameCount % 6 === 0) playSound('rattle');
                 shakerAnimFrame = requestAnimationFrame(drawFrame);
             }
-
             if (shakerAnimFrame) cancelAnimationFrame(shakerAnimFrame);
             shakerAnimFrame = requestAnimationFrame(drawFrame);
         }
 
         const whiteLid = document.getElementById('whiteLid');
-        let lidDrag = {
-            active: false,
-            startX: 0,
-            startY: 0,
-            offsetX: 0,
-            offsetY: 0
-        };
+        let lidDrag = { active: false, startX: 0, startY: 0, offsetX: 0, offsetY: 0 };
 
         function resetWhiteLidPosition(visible = true) {
             const lidEl = document.getElementById('whiteLid');
             if (!lidEl) return;
-            lidDrag.active = false;
-            lidDrag.offsetX = 0;
-            lidDrag.offsetY = 0;
+            lidDrag.active = false; lidDrag.offsetX = 0; lidDrag.offsetY = 0;
             lidEl.classList.remove('dragging');
             lidEl.style.opacity = '1';
             lidEl.style.transform = 'translate(-50%, -50%) translate3d(0px, 0px, 0px)';
@@ -2126,9 +1835,7 @@ git push -u origin main</pre>
             if (state.phase !== PHASES.PEEKING || state.bowlOpened) return;
             const lidEl = document.getElementById('whiteLid');
             if (!lidEl) return;
-            lidDrag.active = true;
-            lidEl.classList.add('dragging');
-
+            lidDrag.active = true; lidEl.classList.add('dragging');
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
             const clientY = e.touches ? e.touches[0].clientY : e.clientY;
             lidDrag.startX = clientX - lidDrag.offsetX;
@@ -2140,19 +1847,12 @@ git push -u origin main</pre>
             const lidEl = document.getElementById('whiteLid');
             if (!lidEl) return;
             if (e.cancelable) e.preventDefault();
-
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
             const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
             lidDrag.offsetX = clientX - lidDrag.startX;
             lidDrag.offsetY = clientY - lidDrag.startY;
-
             lidEl.style.transform = `translate(-50%, -50%) translate3d(${lidDrag.offsetX}px, ${lidDrag.offsetY}px, 0px)`;
-
-            const dist = Math.hypot(lidDrag.offsetX, lidDrag.offsetY);
-            if (dist > 145) {
-                openBowlFully('dragged', true);
-            }
+            if (Math.hypot(lidDrag.offsetX, lidDrag.offsetY) > 145) openBowlFully('dragged');
         }
 
         function onLidPointerUp() {
@@ -2175,10 +1875,8 @@ git push -u origin main</pre>
             const timerBox = document.getElementById('timerBox');
             const timerLabel = document.getElementById('timerLabel');
             const timerSeconds = document.getElementById('timerSeconds');
-
             if (timerLabel) timerLabel.textContent = label;
             if (timerSeconds) timerSeconds.textContent = valueText;
-
             if (timerBox) {
                 if (styleMode === 'locked') {
                     timerBox.className = 'px-4 py-1.5 rounded-2xl bg-red-950/95 border-2 border-red-400 shadow-[0_0_25px_rgba(239,68,68,0.65)] flex items-center gap-2.5 animate-pulse';
@@ -2197,11 +1895,7 @@ git push -u origin main</pre>
             const base = getBaseCrowdForSession(state.roomCode, state.sessionId);
             const seed = hashSeed(`${state.roomCode}_${state.sessionId}_PROG`);
             const rand = mulberry32(seed);
-            let moneyTai = base.moneyTai;
-            let moneyXiu = base.moneyXiu;
-            let pTai = base.playersTai;
-            let pXiu = base.playersXiu;
-
+            let moneyTai = base.moneyTai, moneyXiu = base.moneyXiu, pTai = base.playersTai, pXiu = base.playersXiu;
             const steps = Math.min(22, Math.max(0, elapsedBettingSec));
             for (let i = 0; i < steps; i++) {
                 moneyTai += Math.floor(rand() * 10 + 2) * 500000;
@@ -2209,24 +1903,17 @@ git push -u origin main</pre>
                 pTai += Math.floor(rand() * 7) + 2;
                 pXiu += Math.floor(rand() * 7) + 2;
             }
-
-            state.crowdBet.TAI = moneyTai;
-            state.crowdBet.XIU = moneyXiu;
-            state.crowdPlayers.TAI = pTai;
-            state.crowdPlayers.XIU = pXiu;
+            state.crowdBet.TAI = moneyTai; state.crowdBet.XIU = moneyXiu;
+            state.crowdPlayers.TAI = pTai; state.crowdPlayers.XIU = pXiu;
             updateBetDisplays();
         }
 
-        function openBowlFully(reason = 'manual', shouldBroadcast = true) {
+        function openBowlFully(reason = 'manual') {
             if (state.bowlOpened) return;
-            state.bowlOpened = true;
+            state.bowlOpened = true; // INDEPENDENT per user
 
             setElementVisible('instantOpenBtn', false);
             playSound('openBowl');
-
-            if (shouldBroadcast && (reason === 'dragged' || reason === 'manual_btn')) {
-                broadcastRealtimeEvent('OPEN_BOWL', {});
-            }
 
             const slideX = lidDrag.offsetX !== 0 ? lidDrag.offsetX * 2.2 : 240;
             const slideY = lidDrag.offsetY !== 0 ? lidDrag.offsetY * 2.2 : -140;
@@ -2236,14 +1923,9 @@ git push -u origin main</pre>
                 lidEl.style.transform = `translate(-50%, -50%) translate3d(${slideX}px, ${slideY}px, 0px)`;
                 lidEl.style.opacity = '0';
             }
+            setTimeout(() => { setElementVisible('whiteLid', false); }, 400);
 
-            setTimeout(() => {
-                setElementVisible('whiteLid', false);
-            }, 400);
-
-            if (reason === 'timeout_10s') {
-                showToast('Quá 10 giây chưa kéo hết nắp — Tự động mở bát!', 'warning');
-            }
+            if (reason === 'timeout_10s') showToast('Hết 10 giây nặn — Tự động mở bát!', 'warning');
 
             const [d1, d2, d3] = state.currentDice;
             const sum = d1 + d2 + d3;
@@ -2258,10 +1940,14 @@ git push -u origin main</pre>
             const badgeColor = winningSide === 'TAI' ? 'text-red-400' : 'text-sky-400';
             const diceSumBadge = document.getElementById('diceSumBadge');
             if (diceSumBadge) {
-                diceSumBadge.innerHTML = `
-                    Kết quả: <strong class="text-white font-digital">${d1} - ${d2} - ${d3}</strong> &rarr;
-                    <span class="${badgeColor} font-black text-base ml-1">${winningLabel} (${sum} Điểm)</span>
-                `;
+                diceSumBadge.innerHTML = `Kết quả: <strong class="text-white font-digital">${d1} - ${d2} - ${d3}</strong> &rarr; <span class="${badgeColor} font-black text-base ml-1">${winningLabel} (${sum} Điểm)</span>`;
+            }
+
+            // Check Jackpot (1-1-1 or 6-6-6)
+            const isJackpot = (d1 === 1 && d2 === 1 && d3 === 1) || (d1 === 6 && d2 === 6 && d3 === 6);
+            if (isJackpot) {
+                triggerJackpotLuckyWheel([d1, d2, d3], state.jackpotFund, winningSide);
+                broadcastRealtimeEvent('JACKPOT', { dice: [d1, d2, d3], jackpotAmount: state.jackpotFund, winnerSide: winningSide });
             }
 
             if (state.paidOutSessionId !== state.sessionId) {
@@ -2272,13 +1958,50 @@ git push -u origin main</pre>
                     state.balance += payout;
                     playSound('win');
                     updateBalanceUI(payout);
-                    showToast(`CHÚC MỪNG! Cửa ${winningLabel} (${sum}đ) nổ — Thắng +${formatMoney(payout)} đ!`, 'success');
+                    showToast(`CHÚC MỪNG! Cửa ${winningLabel} nổ — Thắng +${formatMoney(payout)} đ!`, 'success');
                     broadcastRealtimeEvent('WIN', { side: winningSide, payout });
                 }
             }
 
             state.history = buildSynchronizedHistory(state.roomCode, state.sessionId + 1);
             renderHistoryRoad();
+        }
+
+        function triggerJackpotLuckyWheel(diceArr, jackpotPool, winningSide) {
+            setElementVisible('jackpotModal', true, 'flex');
+            const textEl = document.getElementById('jackpotDiceResultText');
+            if (textEl) textEl.textContent = diceArr.join('-');
+
+            const strip = document.getElementById('wheelStrip');
+            const btnEl = document.getElementById('closeJackpotBtn');
+            const annEl = document.getElementById('jackpotPayoutAnnouncement');
+            if (btnEl) setElementVisible(btnEl, false);
+            if (annEl) annEl.textContent = `Đang quay vòng quay may mắn chia hũ ${formatMoney(jackpotPool)}đ...`;
+
+            if (strip) {
+                strip.style.transition = 'none';
+                strip.style.transform = 'translateX(0px)';
+                void strip.offsetWidth;
+                const targetOffset = winningSide === 'TAI' ? -1200 : -1320;
+                strip.style.transition = 'transform 4s cubic-bezier(0.15, 0.85, 0.15, 1)';
+                strip.style.transform = `translateX(${targetOffset}px)`;
+            }
+
+            setTimeout(() => {
+                const shareAmount = Math.floor(jackpotPool / 25);
+                state.balance += shareAmount;
+                state.jackpotFund = 10000000;
+                updateBalanceUI(shareAmount);
+                updateJackpotUI();
+
+                if (annEl) annEl.innerHTML = `NỔ HŨ THÀNH CÔNG! Trúng phe <strong class="${winningSide === 'TAI' ? 'text-red-400' : 'text-sky-400'}">${winningSide === 'TAI' ? 'TÀI' : 'XỈU'}</strong> — Nhận thưởng chia hũ <strong class="text-emerald-300 font-digital">+${formatMoney(shareAmount)}đ</strong>!`;
+                if (btnEl) setElementVisible(btnEl, true, 'block');
+                playSound('win');
+            }, 4200);
+        }
+
+        function closeJackpotModal() {
+            setElementVisible('jackpotModal', false);
         }
 
         function syncWithUniversalClock(forceReset = false) {
@@ -2288,10 +2011,7 @@ git push -u origin main</pre>
             const elapsed = nowSec % ROUND_CYCLE_SECONDS;
 
             if (forceReset || state.sessionId !== targetSessionId) {
-                if (state.myBet.TAI > 0 || state.myBet.XIU > 0) {
-                    state.previousBet = { ...state.myBet };
-                }
-
+                if (state.myBet.TAI > 0 || state.myBet.XIU > 0) state.previousBet = { ...state.myBet };
                 state.sessionId = targetSessionId;
                 state.myBet = { TAI: 0, XIU: 0 };
                 state.friendBetsExtra = { TAI: 0, XIU: 0, playersTAI: 0, playersXIU: 0 };
@@ -2306,7 +2026,6 @@ git push -u origin main</pre>
                 const zoneTai = document.getElementById('zoneTai');
                 const zoneXiu = document.getElementById('zoneXiu');
                 const plateContainer = document.getElementById('plateContainer');
-
                 if (zoneTai) zoneTai.classList.remove('winner-tai', 'locked', 'reject-shake');
                 if (zoneXiu) zoneXiu.classList.remove('winner-xiu', 'locked', 'reject-shake');
                 setElementVisible('lockBadgeTai', false);
@@ -2325,28 +2044,18 @@ git push -u origin main</pre>
             if (elapsed < 30) {
                 state.phase = PHASES.BETTING;
                 state.betTimeLeft = 30 - elapsed;
-
                 updateDeterministicCrowdProgress(elapsed);
                 syncBettingUIState();
 
                 const diceSumBadge = document.getElementById('diceSumBadge');
-                if (diceSumBadge) {
-                    diceSumBadge.innerHTML = `Đang nhận cược phiên <span class="text-amber-400 font-digital">#${state.sessionId}</span>`;
-                }
+                if (diceSumBadge) diceSumBadge.innerHTML = `Đang nhận cược phiên <span class="text-amber-400 font-digital">#${state.sessionId}</span>`;
 
                 if (state.betTimeLeft > 8) {
                     playSound('tick');
                     updateTimerUI('Thời gian đặt cược', state.betTimeLeft + 's', 'normal');
                 } else {
                     playSound('lockTick');
-                    if (state.betTimeLeft === 8 && !hasPlayerPlacedBetInCurrentRound()) {
-                        showToast('Còn 8 giây: Bạn chưa đặt tiền nên đã khóa cược phiên này!', 'warning');
-                    }
-                    updateTimerUI(
-                        state.isBettingLocked ? 'Đã khóa cược' : 'Sắp lắc bát',
-                        state.betTimeLeft + 's',
-                        state.isBettingLocked ? 'locked' : 'peek'
-                    );
+                    updateTimerUI(state.isBettingLocked ? 'Đã khóa cược' : 'Sắp lắc bát', state.betTimeLeft + 's', state.isBettingLocked ? 'locked' : 'peek');
                 }
                 return;
             }
@@ -2355,30 +2064,12 @@ git push -u origin main</pre>
                 if (state.phase !== PHASES.SHAKING) {
                     state.phase = PHASES.SHAKING;
                     syncBettingUIState();
-
                     state.currentDice = getDiceForSession(state.roomCode, state.sessionId);
                     renderAllDice(state.currentDice, true);
-
                     resetWhiteLidPosition(true);
-                    const lidStatusText = document.getElementById('lidStatusText');
-                    const lidTimerBadge = document.getElementById('lidTimerBadge');
                     const plateContainer = document.getElementById('plateContainer');
-
-                    if (lidStatusText) lidStatusText.textContent = 'Đang lắc...';
-                    if (lidTimerBadge) lidTimerBadge.textContent = '🎲';
                     if (plateContainer) plateContainer.classList.add('shaking-bowl');
-
                     startVideoShakerEffect();
-                }
-
-                const phaseBadge = document.getElementById('gamePhaseBadge');
-                const instrBanner = document.getElementById('instructionBanner');
-                if (phaseBadge) {
-                    phaseBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span> Đang lắc xúc xắc...`;
-                    phaseBadge.className = 'text-amber-400 font-semibold flex items-center gap-1';
-                }
-                if (instrBanner) {
-                    instrBanner.innerHTML = `<span class="text-amber-300 font-extrabold"><i class="fa-solid fa-dice fa-spin mr-1"></i> Hệ thống đang lắc xúc xắc đồng bộ...</span>`;
                 }
                 updateTimerUI('Đang lắc bát', 'LẮC...', 'peek');
                 return;
@@ -2396,28 +2087,16 @@ git push -u origin main</pre>
                 state.peekTimeLeft = 43 - elapsed;
                 syncBettingUIState();
 
-                if (enteringPeek && !state.bowlOpened) {
-                    resetWhiteLidPosition(true);
-                }
+                if (enteringPeek && !state.bowlOpened) resetWhiteLidPosition(true);
 
                 if (!state.isNanMode && !state.bowlOpened) {
-                    openBowlFully('auto_mode', false);
+                    openBowlFully('auto_mode');
                 } else if (!state.bowlOpened) {
                     const lidStatusText = document.getElementById('lidStatusText');
                     const lidTimerBadge = document.getElementById('lidTimerBadge');
                     if (lidStatusText) lidStatusText.textContent = 'Kéo nắp để nặn';
                     if (lidTimerBadge) lidTimerBadge.textContent = state.peekTimeLeft + 's';
                     setElementVisible('instantOpenBtn', true, 'inline-block');
-
-                    const phaseBadge = document.getElementById('gamePhaseBadge');
-                    const instrBanner = document.getElementById('instructionBanner');
-                    if (phaseBadge) {
-                        phaseBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-yellow-300 animate-ping"></span> Chờ nặn bát (${state.peekTimeLeft}s)`;
-                        phaseBadge.className = 'text-yellow-300 font-semibold flex items-center gap-1';
-                    }
-                    if (instrBanner) {
-                        instrBanner.innerHTML = `<i class="fa-solid fa-hand-point-up text-amber-300 mr-1"></i> Giữ chuột hoặc chạm kéo <strong>nắp bát trắng</strong> ra để nặn!`;
-                    }
                     updateTimerUI('Thời gian nặn bát', state.peekTimeLeft + 's', 'peek');
                     playSound('tick');
                 } else {
@@ -2430,32 +2109,14 @@ git push -u origin main</pre>
             state.nextRoundTimeLeft = 48 - elapsed;
             syncBettingUIState();
 
-            if (!state.bowlOpened) {
-                openBowlFully('timeout_10s', false);
-            }
-
-            const [d1, d2, d3] = state.currentDice;
-            const sum = d1 + d2 + d3;
-            const winningLabel = sum >= 11 ? 'TÀI' : 'XỈU';
-
-            const phaseBadge = document.getElementById('gamePhaseBadge');
-            const instrBanner = document.getElementById('instructionBanner');
-            if (phaseBadge) {
-                phaseBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span> Trả thưởng • Phiên mới sau ${state.nextRoundTimeLeft}s`;
-                phaseBadge.className = 'text-sky-400 font-semibold flex items-center gap-1';
-            }
-            if (instrBanner) {
-                instrBanner.innerHTML = `Kết quả <strong>${winningLabel} (${sum} điểm)</strong> • Phiên mới sau <strong class="text-amber-300">${state.nextRoundTimeLeft}s</strong>...`;
-            }
+            if (!state.bowlOpened) openBowlFully('timeout_10s');
             updateTimerUI('Phiên mới sau', state.nextRoundTimeLeft + 's', 'normal');
         }
 
         function startMasterGameLoop() {
             if (mainInterval) clearInterval(mainInterval);
             syncWithUniversalClock(true);
-            mainInterval = setInterval(() => {
-                syncWithUniversalClock(false);
-            }, 1000);
+            mainInterval = setInterval(() => { syncWithUniversalClock(false); }, 1000);
         }
 
         function openTopUpModal() {
@@ -2464,11 +2125,13 @@ git push -u origin main</pre>
             if (el) el.focus();
         }
 
-        function closeTopUpModal() {
-            setElementVisible('topUpModal', false);
-        }
+        function closeTopUpModal() { setElementVisible('topUpModal', false); }
 
         function quickAddMoney(amount) {
+            if (amount > 10000000) {
+                showToast('Mỗi lần nạp tối đa 10,000,000 đ!', 'error');
+                return;
+            }
             state.balance += amount;
             playSound('win');
             updateBalanceUI(amount);
@@ -2480,11 +2143,9 @@ git push -u origin main</pre>
             const input = document.getElementById('customTopUpInput');
             if (!input) return;
             const val = parseInt(input.value, 10);
-            if (isNaN(val) || val <= 0) {
-                playSound('error');
-                showToast('Vui lòng nhập số tiền hợp lệ lớn hơn 0!', 'error');
-                return;
-            }
+            if (isNaN(val) || val <= 0) { playSound('error'); showToast('Vui lòng nhập số tiền hợp lệ!', 'error'); return; }
+            if (val > 10000000) { playSound('error'); showToast('Giới hạn tối đa 10,000,000 đ mỗi lần nạp!', 'error'); return; }
+
             state.balance += val;
             input.value = '';
             playSound('win');
@@ -2493,59 +2154,28 @@ git push -u origin main</pre>
             closeTopUpModal();
         }
 
-        function openGitModal() {
-            setElementVisible('gitModal', true, 'flex');
-        }
-
-        function closeGitModal() {
-            setElementVisible('gitModal', false);
-        }
-
-        function copyGitCommands() {
-            const text = `git init\ngit branch -M main\ngit add index.html\ngit commit -m "Deploy web Tai Xiu"\ngit remote add origin https://github.com/TEN_USER/tai-xiu-web.git\ngit push -u origin main`;
-            const tempInput = document.createElement('textarea');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            showToast('Đã copy lệnh Git!', 'success');
-        }
+        function openGitModal() { setElementVisible('gitModal', true, 'flex'); }
+        function closeGitModal() { setElementVisible('gitModal', false); }
 
         Object.assign(window, {
-            toggleSound,
-            toggleNanMode,
-            selectChip,
-            placeBet,
-            repeatLastBet,
-            doubleCurrentBet,
-            openBowlFully,
-            openTopUpModal,
-            closeTopUpModal,
-            quickAddMoney,
-            submitCustomTopUp,
-            openGitModal,
-            closeGitModal,
-            copyGitCommands,
-            openNameModal,
-            generateRandomNickname,
-            setPresetRoom,
-            confirmPlayerNameAndJoin,
-            handleChatSubmit,
-            sendQuickChat
+            toggleSound, toggleNanMode, selectChip, placeBet, repeatLastBet, doubleCurrentBet,
+            openBowlFully, openTopUpModal, closeTopUpModal, quickAddMoney, submitCustomTopUp,
+            openGitModal, closeGitModal, openNameModal, generateRandomNickname, setPresetRoom,
+            confirmPlayerNameAndJoin, handleChatSubmit, sendQuickChat, closeJackpotModal
         });
 
         window.addEventListener('DOMContentLoaded', () => {
             generateRandomNickname();
             updatePlayerProfileUI();
             updateBalanceUI(0, false);
+            updateJackpotUI();
             startMasterGameLoop();
             connectRealtimeWebSocket();
             initFirebaseSync();
 
             appendChatMessageUI({
                 senderName: 'Hệ Thống',
-                text: 'Chào mừng đến bàn Tài Xỉu Hoàng Gia! Hãy nhập cùng Mã Phòng với bạn bè để chơi chung.',
+                text: 'Đã cập nhật hệ thống Nổ Hũ (1% chiết khấu) & Chế độ nặn bát độc lập!',
                 timestamp: Date.now(),
                 kind: 'system_join'
             });
